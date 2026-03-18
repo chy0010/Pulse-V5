@@ -16,22 +16,26 @@ MAX_TOKENS = 4000
 
 SYSTEM_PROMPT = """You are a consumer intelligence analyst. You are given today's YouTube video titles and their most-engaged comments from two types of channels:
 
-- Tier 1: Independent creators, podcasters, business educators. Their audiences are real consumers sharing genuine opinions.
-- Tier 2: Institutional financial media (CNBC, Bloomberg, WSJ, etc.). Represents what Wall Street already knows.
+- Tier 1 (PRIMARY SIGNAL): Independent creators, podcasters, business educators. Their audiences are real consumers sharing genuine opinions about products, spending, brands, and market trends. This is the core data. Weight it heavily.
+- Tier 2 (SECONDARY/COMPARISON ONLY): Institutional financial media (CNBC, Bloomberg, WSJ, etc.). Represents what Wall Street already knows and is publicly discussing. Use this only to identify gaps — topics Tier 1 consumers are talking about that Tier 2 has NOT covered yet are the highest-value signals.
+
+Your job is to surface what REAL CONSUMERS are saying, not to summarize financial news. Tier 1 comments are your primary evidence. Tier 2 is context.
+
+Comments marked ★ HIGH ENGAGEMENT have more than 2 replies — these sparked real conversation and carry extra weight. Prioritize them when identifying signals.
 
 Analyze all the data and produce a daily intelligence report with exactly these five sections:
 
-1. Topics People Are Talking About — List the key topics and themes. Just the topics, clean and clear. Group related topics together.
+1. Topics People Are Talking About — Driven by Tier 1 consumer comments. List the key topics real people are discussing. Group related topics. Ignore anything that is just institutional media talking to itself.
 
-2. Why They Are Talking About These Topics — For each topic, what triggered the conversation. Be specific.
+2. Why They Are Talking About These Topics — For each topic, what triggered the conversation among consumers. Be specific. Cite actual comments as evidence.
 
-3. Links Between Topics — Find connections between seemingly unrelated topics. These cross-topic connections are the most valuable insights.
+3. Links Between Topics — Find connections between seemingly unrelated topics in the Tier 1 data. These cross-topic connections are the most valuable insights and the hardest to find elsewhere. Flag any topic that Tier 1 consumers are discussing but Tier 2 media has not covered yet — that gap is the edge.
 
-4. Brands That Might Get Affected — List brands that could be positively OR negatively affected. Both sides. For each brand, explain why. Include ticker symbols for public companies.
+4. Brands That Might Get Affected — Based on what consumers are actually saying, list brands that could be positively OR negatively affected. Both sides. For each brand, quote the consumer signal behind it. Include ticker symbols for public companies.
 
-5. Daily Summary — Concise executive summary. Big themes, surprises, what to watch tomorrow.
+5. Daily Summary — Concise executive summary focused on consumer behavior signals. What are real people doing, buying, avoiding, switching to? What surprised you in the Tier 1 data? What should someone watching markets pay attention to tomorrow?
 
-Be direct. Be specific. No fluff. Use the actual comments as evidence."""
+Be direct. Be specific. No fluff. Ground every insight in actual comments."""
 
 
 def get_today_data(conn, today_str):
@@ -75,11 +79,13 @@ def get_today_data(conn, today_str):
     return result
 
 
-MAX_COMMENTS_PER_VIDEO = 15     # top comments shown in prompt
-MAX_REPLIES_PER_COMMENT = 5     # replies shown per parent
-MAX_COMMENT_CHARS = 280         # truncate long comments
+# Per-tier comment limits — all data is stored in DB, we just control what goes to Claude
+MAX_COMMENTS_TIER1_PER_VIDEO = 25   # Tier 1 is the primary signal — 70% of total comments
+MAX_COMMENTS_TIER2_PER_VIDEO = 15   # Tier 2 gets more comments but fewer videos — 30% of total
+MAX_REPLIES_PER_COMMENT = 5         # replies shown per parent comment
+MAX_COMMENT_CHARS = 280             # truncate long comments
 MAX_VIDEOS_TIER1_PER_CHANNEL = 10
-MAX_VIDEOS_TIER2_PER_CHANNEL = 3  # institutional channels post many videos; cap to stay within token limits
+MAX_VIDEOS_TIER2_PER_CHANNEL = 5    # more videos per Tier 2 channel to use the data we fetched
 
 
 def _cap_videos_per_channel(videos, max_per_channel):
@@ -107,17 +113,20 @@ def build_prompt(data):
         MAX_VIDEOS_TIER2_PER_CHANNEL,
     )
 
-    for tier_label, videos in [("TIER 1 — Consumer Signal Channels", tier1),
-                                 ("TIER 2 — Institutional Media Channels", tier2)]:
+    for tier_label, videos, max_comments in [
+        ("TIER 1 — Consumer Signal Channels (PRIMARY)", tier1, MAX_COMMENTS_TIER1_PER_VIDEO),
+        ("TIER 2 — Institutional Media (SECONDARY CONTEXT)", tier2, MAX_COMMENTS_TIER2_PER_VIDEO),
+    ]:
         lines.append(f"\n## {tier_label}\n")
         for video in videos:
             lines.append(f"### [{video['channel_name']} / {video['channel_handle']}]")
             lines.append(f"Video: {video['video_title']}\n")
 
-            for c in video["comments"][:MAX_COMMENTS_PER_VIDEO]:
+            for c in video["comments"][:max_comments]:
                 cid, text, author, likes, replies_count, _, _ = c
                 text = text[:MAX_COMMENT_CHARS] + ("…" if len(text) > MAX_COMMENT_CHARS else "")
-                lines.append(f"  [{likes} likes, {replies_count} replies] {text}")
+                engagement = " ★ HIGH ENGAGEMENT" if replies_count > 2 else ""
+                lines.append(f"  [{likes} likes, {replies_count} replies{engagement}] {text}")
 
                 for reply in video["replies_map"].get(cid, [])[:MAX_REPLIES_PER_COMMENT]:
                     _, rtext, rauthor, rlikes, _, _, _ = reply

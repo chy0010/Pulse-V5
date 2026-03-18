@@ -18,9 +18,16 @@ TIER1_HANDLES = [
     "@alexlorenlee", "@miso-tech", "@firooza", "@AaravNarula", "@VarunMayya",
     "@nikhil.kamath", "@TomBilyeu", "@DwarkeshPatel", "@JeffSu", "@iqjayfeng",
     "@mreflow", "@AaronJack", "@harkirat1", "@IvyFung", "@martinzeman89",
-    "@RuntimeBRT", "@principlesbyraydalio", "@BusinessBasicsYT", "@SimplilearnOfficial",
+    "@RuntimeBRT", "@principlesbyraydalio", "@SimplilearnOfficial",
     "@IBMTechnology", "@Vox", "@ALifeEngineered", "@FactasticFeed", "@worldaffairsEng",
     "@USAFacts_Official", "@LeisRealTalk", "@robmulla", "@NewMachina", "@TLDRbusiness",
+    # Added
+    "@TinaHuang1", "@HowMoneyWorks", "@HeresyFinancial", "@johnnyharris",
+    "@TheDiaryOfACEO", "@TheNewYorker", "@HooverInstitution", "@EconomicsExplained",
+    "@Deeplearningai", "@Micro-Econ-YT", "@PBoyle", "@eoglobal",
+    "@claude", "@ConfluentDeveloper", "@TechAltar", "@CNET",
+    "@SAMTIME", "@JiangKnowledgeCapsule", "@SimonClark", "@peterdiamandis",
+    "@OutofSpecReviews", "@RealEngineering", "@ThinkSchool",
 ]
 
 TIER2_HANDLES = [

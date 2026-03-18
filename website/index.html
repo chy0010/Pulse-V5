@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Pulse — 2026-03-18</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #f9f7f4;
+      --surface:  #ffffff;
+      --border:   #e2ddd7;
+      --border-strong: #c8c2b8;
+      --ink:      #0f0f0f;
+      --ink-soft: #3a3835;
+      --ink-dim:  #6b6760;
+      --muted:    #9a9590;
+      --navy:     #1a3052;
+      --navy-mid: #2a4a72;
+      --accent:   #c0392b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP NAV BAR ── */
+    .topbar {
+      background: var(--navy);
+      padding: 0.55rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .topbar-brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .topbar-brand span { color: #7fa8d4; }
+
+    .topbar-right {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7fa8d4;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 3px solid var(--navy);
+      padding: 2.5rem 2.5rem 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .header-left { flex: 1; }
+
+    .report-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .masthead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--ink);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .masthead span { color: var(--navy); }
+
+    .tagline {
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--ink-dim);
+      font-weight: 400;
+    }
+
+    .header-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-end;
+    }
+
+    .stat-chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+    }
+
+    .stat-chip strong {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    /* ── DATE STRIP ── */
+    .dateline {
+      background: var(--navy);
+      padding: 0.65rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .dateline .date {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .dateline .meta {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7fa8d4;
+    }
+
+    .divider-pipe {
+      width: 1px;
+      height: 12px;
+      background: #3a5a7a;
+    }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    main { padding: 3rem 0 6rem; }
+
+    /* ── SIDEBAR ── */
+    aside {
+      padding: 3rem 0 6rem;
+    }
+
+    .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--navy);
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .sidebar-card h4 {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-card p {
+      font-size: 0.82rem;
+      color: var(--ink-dim);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-card .big-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .sidebar-card .big-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+
+    .section-header {
+      background: var(--navy);
+      padding: 0.7rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-num {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7fa8d4;
+    }
+
+    .section-title {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .section-body { padding: 1.8rem 1.8rem 1.4rem; }
+
+    /* ── RENDERED MARKDOWN inside sections ── */
+    #report h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 1.2rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: -0.01em;
+    }
+
+    #report h2 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      margin: 2rem 0 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    #report h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 1.4rem 0 0.4rem;
+    }
+
+    #report p {
+      font-size: 0.93rem;
+      color: var(--ink-soft);
+      margin-bottom: 0.9rem;
+      font-weight: 400;
+      line-height: 1.75;
+    }
+
+    #report ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    #report ul li {
+      font-size: 0.91rem;
+      color: var(--ink-soft);
+      padding: 0.45rem 0 0.45rem 1.2rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    #report ul li:last-child { border-bottom: none; }
+
+    #report ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 5px;
+      background: var(--navy-mid);
+      border-radius: 50%;
+    }
+
+    #report strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    #report em {
+      color: var(--ink-dim);
+      font-style: italic;
+    }
+
+    #report hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.8rem 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      text-align: center;
+      padding: 1.6rem 2rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7fa8d4;
+    }
+
+    footer strong { color: #ffffff; font-weight: 600; }
+
+    /* ── SCROLL TO TOP ── */
+    .back-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 38px;
+      height: 38px;
+      background: var(--navy);
+      color: #ffffff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border: none;
+    }
+
+    .back-top.visible { opacity: 1; }
+    .back-top:hover { background: var(--navy-mid); }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="topbar-brand">Market <span>Pulse</span></span>
+    <nav style="display:flex;gap:1.5rem;">
+      <a href="index.html" style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#ffffff;text-decoration:none;font-weight:600;">Intelligence Report</a>
+      <a href="comments.html" style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7fa8d4;text-decoration:none;">All Comments</a>
+      <a href="companies.html" style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:#7fa8d4;text-decoration:none;">Companies &amp; Tech</a>
+    </nav>
+  </div>
+
+  <header>
+    <div class="header-left">
+      <p class="report-label">Daily Intelligence Briefing</p>
+      <h1 class="masthead"><span>Market</span> Pulse</h1>
+      <p class="tagline">YouTube consumer signals across 71 channels — 2 tiers — analyzed by AI</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-chip"><strong>670</strong> videos analyzed</div>
+      <div class="stat-chip"><strong>9,789</strong> comments processed</div>
+      <div class="stat-chip"><strong>71</strong> channels · <strong>2</strong> tiers</div>
+    </div>
+  </header>
+
+  <div class="dateline">
+    <span class="date">MARCH 18, 2026</span>
+    <span class="divider-pipe"></span>
+    <span class="meta">Tier 1 — 57 consumer channels</span>
+    <span class="divider-pipe"></span>
+    <span class="meta">Tier 2 — 14 institutional channels</span>
+    <span class="divider-pipe"></span>
+    <span class="meta">Powered by Claude Sonnet</span>
+  </div>
+
+  <div class="page-wrap">
+    <main>
+      <div id="report"></div>
+    </main>
+
+    <aside>
+      <div class="sidebar-card">
+        <h4>Today's Coverage</h4>
+        <div class="big-number">670</div>
+        <div class="big-label">Videos</div>
+        <br/>
+        <div class="big-number">9,789</div>
+        <div class="big-label">Comments &amp; Replies</div>
+      </div>
+      <div class="sidebar-card">
+        <h4>Data Sources</h4>
+        <p>57 Tier 1 consumer channels<br/>40 comments per video</p>
+        <p>14 Tier 2 institutional channels<br/>20 comments per video</p>
+        <p>Replies fetched for comments with 3+ responses (up to 10)</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Report Sections</h4>
+        <p>01 — Topics<br/>02 — Catalysts<br/>03 — Cross-topic Links<br/>04 — Brands Affected<br/>05 — Daily Summary</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <strong>Market Pulse</strong> &nbsp;·&nbsp; Built by Krishna &nbsp;·&nbsp; 2026-03-18
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+    const md = `# Daily Consumer Intelligence Report
+
+## 1. Topics People Are Talking About
+
+**AI/Tech Fatigue & Quality Concerns**
+- NVIDIA DLSS 5 receiving heavy criticism for "AI slop" aesthetic that changes game art direction
+- General skepticism about AI features being forced into products without consumer request
+- Concerns about AI agents causing unexpected high bills for users
+
+**Job Market Anxiety & Career Strategy**
+- Intense discussion about AI replacing various professions (lawyers, accountants, coders)
+- Debate over whether trades (plumbing, electrical) are truly "AI-proof"
+- Software engineering job market described as brutal for new graduates
+
+**Economic Stratification & Access**
+- Rising costs making third spaces (gyms, climbing gyms, social venues) accessible only to wealthy
+- Storage unit boom reflecting overconsumption and housing shortage
+- Luxury gym memberships (\$1000+/year) becoming new social status markers
+
+**Gaming Hardware Frustration**
+- Apple MacBook Neo criticism for underpowered specs at premium pricing
+- NVIDIA pushing AI features instead of addressing core performance/RAM issues
+- General sentiment that companies prioritize profit over user needs
+
+**Semiconductor/Tech Infrastructure**
+- Interest in India's growing semiconductor capabilities
+- Concerns about NVIDIA's monopolistic position in AI hardware
+- Discussion of Chinese tech advancement and brain drain from Silicon Valley
+
+## 2. Why They Are Talking About These Topics
+
+**NVIDIA GTC Event Trigger**: Multiple channels covered NVIDIA's announcements, sparking widespread criticism. Comments like "DLSS 5 looks like the AI slop your uncle believes on FB" (692 likes) and "It's tech Ozempic. A shortcut that leads to the Ozempic look" show deep consumer skepticism about AI graphics "improvements."
+
+**Economic Pressure Points**: Rising costs everywhere are making consumers hyper-aware of value. A climbing gym member noted "\$1000/year for a membership is insane," while others discussed how "50% of consumer spending is by 10% of the population" - indicating awareness of economic bifurcation.
+
+**Job Market Reality Check**: The contrast between "6 Experts vs 6 Beginners" in tech hiring sparked discussions about real employment prospects. Comments reveal anxiety: "Most viewer are unemployed" and concerns about AI displacement.
+
+**Product Quality Decline**: Apple's MacBook Neo launch triggered backlash over "unovation" - consumers are noticing companies removing features while increasing prices. "8GB RAM in 2026" is seen as intentionally limiting.
+
+## 3. Links Between Topics
+
+**The Luxury-ification Connection**: Storage units, luxury gyms, and overpriced tech are all symptoms of the same economic stratification. As one commenter noted: "We're experiencing the gentrification of the entire economy."
+
+**AI Skepticism Across Categories**: Criticism of DLSS 5's "AI slop" aesthetic connects to concerns about AI job displacement and unexpected AI agent bills. Consumers see AI being pushed without clear benefit to them.
+
+**TIER 2 COVERAGE GAP - HIGH VALUE SIGNAL**: Consumer-driven AI quality concerns and economic stratification discussions are NOT appearing in institutional media coverage. While Tier 2 media focuses on NVIDIA's technical announcements and Fed rate decisions, real consumers are having sophisticated conversations about AI's actual impact on their work and spending power. This disconnect represents a significant intelligence edge.
+
+**Value vs. Status Divide**: While luxury gym memberships rise, consumers simultaneously criticize paying for storage units for excess stuff. This reveals tension between practical value and status signaling.
+
+**Geographic Opportunity Shifts**: Interest in India's semiconductor growth alongside Chinese brain drain suggests consumers recognize tech opportunity is becoming more globally distributed.
+
+## 4. Brands That Might Get Affected
+
+**NEGATIVE SIGNALS:**
+- **NVIDIA (NVDA)**: Heavy criticism of DLSS 5 as "AI slop." Comments: "DLSS 5 is ruining the art direction" and "glorified snapchat filter"
+- **Apple (AAPL)**: MacBook Neo mockery for specs/pricing. "8GB RAM in 2026" seen as insulting to consumers
+- **Equinox/Luxury Fitness**: Backlash against \$1000+ gym memberships as economy stratifies
+- **Byju's**: Multiple negative mentions about debt traps and refund issues
+
+**POSITIVE SIGNALS:**
+- **Rivian (RIVN)**: Strong enthusiasm in EV community. "Can't wait to see where this company goes," "such an exciting company"
+- **Claude/Anthropic**: Genuine excitement about Claude Cowork features. "People have no idea how big of a deal Claude Cowork is!"
+- **Physics Wallah**: Praised for disrupting traditional education with affordable alternatives
+- **Lucid (LCID)**: Mixed but interested discussion about space efficiency and range
+
+**MIXED/WATCH:**
+- **Disney (DIS)**: Interest in AI robotics for parks, but concerns about job displacement
+- **Tesla (TSLA)**: Self-driving discussion shows continued skepticism from some demographics
+
+## 5. Daily Summary
+
+Today's consumer signals reveal a growing sophistication in rejecting forced technological "improvements" that don't provide real value. The DLSS 5 backlash exemplifies this - consumers can clearly identify when AI makes things worse while being marketed as better.
+
+**CRITICAL INTELLIGENCE GAP IDENTIFIED**: While institutional media covers NVIDIA's GTC event from a technical/financial perspective, real consumers are having nuanced discussions about AI quality degradation and economic accessibility that Wall Street isn't tracking yet. This represents a significant early-warning signal.
+
+The most striking pattern is economic bifurcation accelerating into consumer consciousness. People are explicitly discussing how services are becoming accessible only to the top 10% of earners, from luxury gyms to climbing walls. This isn't abstract economic theory - it's lived experience driving real purchasing decisions.
+
+Career anxiety is acute, with consumers simultaneously skeptical that trades offer protection from AI while recognizing traditional white-collar paths are vulnerable. The Physics Wallah praise suggests appetite for education that delivers practical results rather than credentials.
+
+**Key behavioral shifts to watch:**
+- Value-conscious consumers rejecting premium products with artificial limitations
+- Growing interest in practical skills over credentials  
+- Preference for AI tools that clearly augment rather than replace human capability
+- Increased awareness of which companies respect vs. exploit their users
+
+**Tomorrow's Focus**: Monitor whether NVIDIA's stock reflects this consumer sentiment gap, and watch for more examples of consumers calling out "luxury-ification" of basic services. The disconnect between institutional coverage and consumer reality suggests significant market opportunities for those tracking authentic consumer signals.`;
+    document.getElementById('report').innerHTML = marked.parse(md);
+
+    const btn = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    });
+  </script>
+</body>
+</html>
