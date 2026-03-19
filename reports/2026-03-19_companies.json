@@ -1,0 +1,2249 @@
+{
+  "date": "2026-03-19",
+  "generated_at": "2026-03-19T14:55:52.692627Z",
+  "entity_count": 96,
+  "entities": [
+    {
+      "name": "Donald Trump",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 330,
+      "sentiment": "mixed",
+      "why_talking": "Discussions about potential Iran policy, legal challenges, and comparisons to authoritarian tactics",
+      "what_saying": [
+        "Claims about threatening journalists with imprisonment or violence disputed as false characterization",
+        "Debate over Iran policy approach and potential military escalation in Middle East",
+        "Discussion of legal cases as either legitimate prosecution or political weaponization",
+        "Mixed predictions about electoral prospects and foreign policy implications",
+        "Skepticism about Trump's claims to end Middle East conflicts this year",
+        "Criticism of his previous statements about deserving Nobel Peace Prize while threatening countries",
+        "Concerns about potential territorial annexation threats toward Canada, Greenland, and Alberta",
+        "Mixed views on his foreign policy approach and credibility"
+      ],
+      "key_quotes": [
+        "Starts off with trump derangement syndrome, Trump to put journalists in prison and to shoot them if they speak against the administration? Wtf",
+        "can you show me a video of trump telling a reporter 'we are going to shoot you to death' for criticizing us",
+        "Trump wins. His adversaries lose. Every time. I'm with Trump",
+        "Didn't Donald Trump aim to end the conflict in the middle east this year?",
+        "he also claimed that he would deserve the Noble Peace Prize, while he already threatened countless countries with invasion"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "Iran",
+      "type": "other",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 298,
+      "sentiment": "mixed",
+      "why_talking": "Ongoing conflict analysis and predictions about escalation with potential US/Israeli military action",
+      "what_saying": [
+        "Analysis suggests Iran vulnerable to oil infrastructure attacks that could cripple economy",
+        "Discussion of nuclear program compliance and international agreement violations",
+        "Debate over whether Iranian people support regime or desire democratic change",
+        "Strategic importance of various Iranian assets including Kharg Island oil facilities",
+        "Support from Iraqi commenters for Iran's position in historical conflicts with Iraq",
+        "Recognition of Iran's strengthened military position and preparation for potential conflict since 1989",
+        "Discussion of Iran as regional power that makes Middle East 'highly unstable'",
+        "Analysis of Iran's strategic positioning and learning from US actions in Iraq"
+      ],
+      "key_quotes": [
+        "Iran did NOT agree to zero uranium enrichment prior to the war start. They did agree to zero stockpiling of enriched uranium",
+        "The not a professor jiang is wrong. Iran does not havee a workaround if they lose Kharg island, it's 90% of their oil",
+        "So, we should not care about the Persian people of whom 85% want to live as free people?",
+        "As an Iraqi i fully support Iran in this war, Saddam was the aggressor",
+        "Iran is significantly stronger and they have been preparing for this war since 1989"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "Jerome Powell",
+      "type": "person",
+      "ticker": null,
+      "parent": "Federal Reserve",
+      "mention_count": 194,
+      "sentiment": "negative",
+      "why_talking": "Fed meeting decision to hold rates amid Iran War economic uncertainty",
+      "what_saying": [
+        "Criticism for being reactive rather than predictive on economic policy",
+        "Vows to stay at Fed until DOJ probe completion generating controversy",
+        "Fed holding rates despite Iran War economic impacts drawing criticism",
+        "General skepticism about Fed's handling of economic crises",
+        "Criticism for keeping rates too high for too long and expensive Fed building renovation",
+        "Mixed reactions to hawkish stance despite war and economic uncertainty",
+        "Debate over his competence and political motivations in rate decisions",
+        "Uncertainty about his replacement under incoming Trump administration",
+        "Refusing to leave position despite escalating probe and calls for resignation",
+        "Some defend him as only reason Trump hasn't caused recession",
+        "Criticized for having more power than elected officials",
+        "Term continues through 2028 regardless of political pressure",
+        "Heavy criticism from Trump supporters claiming he has TDS (Trump Derangement Syndrome) and is sabotaging the economy",
+        "Accusations that he's punishing Americans due to political bias against Trump",
+        "Calls for his immediate removal and replacement with Kevin Warsh",
+        "Some defend his independence but majority sentiment is negative",
+        "Heavy criticism for keeping rates unchanged while gas prices surge $1+ per gallon",
+        "Accused of political bias against Trump and willingness to hurt Americans to damage presidency",
+        "Called 'disgusting human' and 'failure' who is 'always behind the curve'",
+        "Some support for standing ground against Trump pressure and serving until successor confirmed",
+        "Refusing to resign despite Trump pressure and ongoing DOJ investigation",
+        "Says too soon to know impact of higher energy prices from Iran war",
+        "Maintaining Fed independence against political pressure",
+        "Viewed as hero by supporters, obstacle by critics",
+        "Fed holding rates steady while signaling potential future cut despite rising inflation",
+        "Commitment to remain as Fed Chair until successor confirmed",
+        "Market uncertainty about rate cuts with investors seeking clarity",
+        "Policy decisions being made amid oil price surges and Middle East war fears",
+        "Fed holding rates steady during geopolitical crisis",
+        "Powell conducting live press conference on monetary policy",
+        "Market watching Fed response to oil price volatility from Middle East conflict",
+        "Anticipation of Powell's comments on economic impact of war"
+      ],
+      "key_quotes": [
+        "The FED is never predictive. Always reactive",
+        "Should have fired him since operation covid",
+        "Everything is unclear with this pathetic government",
+        "Puppet Powell is following directions of his billionaire psychopath bosses",
+        "Two more months of this incompetent old fool who has rained down economic violence"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Israel",
+      "type": "country",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 126,
+      "sentiment": "negative",
+      "why_talking": "Criticism of Israel's role in US Middle East policy and media coverage",
+      "what_saying": [
+        "Strong criticism for perceived influence on US foreign policy and military decisions",
+        "Accusations of lobby influence (AIPAC) in promoting Iraq invasion",
+        "Complaints about media coverage omitting Israel's role in regional conflicts",
+        "References to historical incidents like USS Liberty"
+      ],
+      "key_quotes": [
+        "The USA/ISRAEL has been lying, still lying and always will be lying!",
+        "It all unsurprisingly comes back to Israel",
+        "You forgot Netanyahu testifying that Iraq had WMD in congress",
+        "Israel is the imminent threat",
+        "Thanks Isreal and US for starting this global mess"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "Federal Reserve",
+      "type": "other",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 104,
+      "sentiment": "neutral",
+      "why_talking": "Recent decision to leave interest rates unchanged citing Middle East uncertainty as factor",
+      "what_saying": [
+        "Decision to maintain current interest rates attributed to geopolitical uncertainty in Middle East",
+        "Some criticism that Fed follows globalist agenda rather than making independent monetary policy",
+        "Calls for returning to higher interest rates similar to Reagan era levels",
+        "Mixed reactions to reasoning behind rate decision timing"
+      ],
+      "key_quotes": [
+        "The Fed does whatever its globalist masters tell it to do. It is a City of London control mechanism",
+        "Rates need to go back to where they were when reagan was around",
+        "The FED is never predictive. Always reactive",
+        "right before th election Powell lowered interest rates for kamala Harris",
+        "stop big banks from shutting down local little banks"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "Democrats",
+      "type": "political_party",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 89,
+      "sentiment": "negative",
+      "why_talking": "Criticism of Democratic Party policies, opposition to Trump agenda, and government shutdown politics",
+      "what_saying": [
+        "Accused of having no positive agenda, only opposition to Trump and negativity",
+        "Blamed for government shutdown and obstructing homeland security funding during wartime",
+        "Criticized for opposing voter ID requirements and supporting illegal immigration",
+        "Characterized as anti-American and controlled by foreign interests"
+      ],
+      "key_quotes": [
+        "Democrats agenda is simple. High taxes and government controlled economy",
+        "Dems have 'NO AGENDA,' just negativity",
+        "Democrats are against the American people"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "China",
+      "type": "country",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 69,
+      "sentiment": "mixed",
+      "why_talking": "CNBC documentary discussing Chinese economic model and competition with Western businesses",
+      "what_saying": [
+        "Debate over China's economic success vs Western business model failures",
+        "Discussion of advanced waste management and energy technology capabilities",
+        "Mixed views on consumerism, economic deflation, and consumer behavior patterns",
+        "Geopolitical tensions over different economic and cultural approaches",
+        "Accused of playing both sides in Iran conflict while avoiding direct confrontation",
+        "Called for Chinese leader Xi Jinping to come to Washington and beg for leniency",
+        "Warnings about China's 'quiet sneaky' activities requiring US vigilance",
+        "Suggestions to seize Chinese tankers supporting Iran operations",
+        "Support for investigating Chinese trade practices and bringing manufacturing back to America",
+        "Recognition that China dominates global supply chains making decoupling difficult",
+        "Concerns about tariffs increasing consumer costs while benefiting China strategically",
+        "Mixed views on whether trade war approach will work"
+      ],
+      "key_quotes": [
+        "Why does China a culturally different, historically different, linguistically different, and a country with more than a millennium of history, confuses the American mindset",
+        "China actially ran out of waste and landfill due to it's advanced waste to energy treatment tech",
+        "Great news. Hope the downfall of the colonial west could speed up",
+        "Xi needs to come to Washington DC \ud83c\uddfa\ud83c\uddf8, drop to his knees, and begging for leniency",
+        "US be careful. This quiet sneaky stuff from China is a warning"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Joe Biden",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 67,
+      "sentiment": "negative",
+      "why_talking": "Referenced in context of inflation comparisons and blame for current economic conditions",
+      "what_saying": [
+        "Blamed for 9.3% inflation rate during his presidency and current economic problems",
+        "Credit given for some manufacturing investments but overall negative sentiment",
+        "Comparisons made between his economic record and Trump's current performance",
+        "Some nostalgia expressed by critics of current administration"
+      ],
+      "key_quotes": [
+        "I guess the feds forgot the 9.3% inflation under Joe Biden",
+        "Trump did this...I want Biden back",
+        "Biden brought Chip manufacturing back to our shores for the first time in decades"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "United States",
+      "type": "country",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 53,
+      "sentiment": "negative",
+      "why_talking": "Multiple discussions about US foreign policy, military interventions in Middle East, and geopolitical influence",
+      "what_saying": [
+        "Primary criticism focuses on US military interventions and wars in Iraq and Middle East for oil control and geopolitical dominance",
+        "Strong negative sentiment about US imperialism, with commenters calling US 'biggest threat to world peace' and criticizing corruption",
+        "Economic motivations highlighted - commenters note military-industrial complex profits from warfare and destabilization",
+        "Geopolitical criticism includes accusations of using proxies like Saddam Hussein and manipulating regional conflicts for resource access"
+      ],
+      "key_quotes": [
+        "All these wars are the US colonizing middle east for access to resouces",
+        "People around the world are dumb that they never see and understand which country is the biggest threat to the world",
+        "Oil control and the US is built on its military, made a lot of weapons which means economic growth",
+        "You cannot fight even with Iran if you face pakistan , USA will be vanished from earth",
+        "This guy is wrong about everything. America is winning this war and will win this war"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "Windows 11",
+      "type": "product",
+      "ticker": "MSFT",
+      "parent": "Microsoft",
+      "mention_count": 45,
+      "sentiment": "negative",
+      "why_talking": "Major bug preventing users from accessing C drive after recent update, alongside other persistent stability issues and AI feature rollouts",
+      "what_saying": [
+        "Major update blocking C drive access creating panic among users who can't access their files",
+        "Widespread criticism of forced AI integration, bloatware, and privacy concerns around data collection",
+        "Users increasingly switching to Linux distributions citing better stability and performance",
+        "Microsoft accused of 'vibe coding' with AI-generated code causing frequent breaking updates"
+      ],
+      "key_quotes": [
+        "I had a virus on my PC, it was Windows 11. I installed Linux, deleted the virus and I have had no issues ever since.",
+        "They changed it from 'My Computer' to 'This PC' for a reason. You will own nothing and be happy",
+        "Windows is just handing Sam content at this point"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "NATO",
+      "type": "organization",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 45,
+      "sentiment": "mixed",
+      "why_talking": "Trump's public criticism of NATO allies for not helping with Iran conflict and Strait of Hormuz",
+      "what_saying": [
+        "Trump supporters back his criticism of NATO allies as freeloaders who don't contribute",
+        "Critics argue Trump insulted allies first then expects their help in his war",
+        "Debate over NATO's actual mandate and whether Iran conflict qualifies for Article 5",
+        "Discussion of US potentially leaving NATO with mixed reactions"
+      ],
+      "key_quotes": [
+        "So Trump insulted and mocked all of the US's traditional allies... and after all that, he expects his 'allies' to come to his rescue?",
+        "we Americans cannot wait to be free of UN/NATO/WEF/WHO",
+        "NATO is short for North Atlantic Treaty Organization and as far as I know Iran is not in the North Atlantic area"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Tulsi Gabbard",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 38,
+      "sentiment": "mixed",
+      "why_talking": "Dodging questions about Iran as imminent threat during confirmation process",
+      "what_saying": [
+        "Avoiding direct answers about Iran threat assessment",
+        "Some support her position that Israel is the real threat",
+        "Questions about intelligence capabilities and assessments",
+        "Debate over Middle East threat priorities and geopolitical analysis",
+        "Issuing warnings about long-range missile capabilities of adversarial nations",
+        "Part of national security and defense policy discussions",
+        "Focusing on geopolitical threats and regional security concerns",
+        "Administrative role in foreign policy and security assessment",
+        "Praised for telling truth about Ukraine conflict and Iran nuclear capabilities",
+        "Positive reception for her intelligence briefings and straightforward approach",
+        "Support for her nomination despite previous Democratic Party affiliation",
+        "Appreciation for her military background and foreign policy expertise",
+        "Providing testimony on Iran war developments",
+        "Part of broader national security briefings",
+        "Discussing global threat assessment",
+        "Contributing to Congressional oversight of foreign policy",
+        "Accusations of being anti-war fraud who changed positions for money and Trump support",
+        "Criticism for identifying Pakistan as major nuclear threat",
+        "Viewed as Trump enabler who should be imprisoned for corruption",
+        "Questions about her foreign policy knowledge and briefings"
+      ],
+      "key_quotes": [
+        "Israel is the imminent threat",
+        "What intelligence? no e there!",
+        "The entire world was aware that Iran would strike out if attacked!",
+        "Tulsi Gabbard Warns: China, Russia, Pakistan Missiles Put America At Risk",
+        "Finally someone tells the truth about Ukraine!"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Kevin Warsh",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 36,
+      "sentiment": "neutral",
+      "why_talking": "Mentioned as potential replacement for Jerome Powell as Fed Chair",
+      "what_saying": [
+        "Discussed as Trump's likely nominee to replace Powell as Fed Chair",
+        "Part of transition planning discussion for Federal Reserve leadership",
+        "Neutral coverage of potential personnel changes in Fed leadership",
+        "Administrative transition planning rather than policy debate",
+        "Strong support as Powell's replacement who won't make same 'mistakes'",
+        "Expectations he will lower interest rates as Trump wants",
+        "Questions about Senate confirmation and whether Powell will step down",
+        "Optimism he will be more aligned with Trump's economic agenda"
+      ],
+      "key_quotes": [
+        "Powell says he will stay on as head of the Fed until Kevin Warsh is confirmed",
+        "Warsh won't make that 'mistake'",
+        "Six months from now ,Trump will be calling Warsh names",
+        "Warsh will make whatever mistake Trump wants him to make"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "NVIDIA",
+      "type": "company",
+      "ticker": "NVDA",
+      "parent": null,
+      "mention_count": 31,
+      "sentiment": "mixed",
+      "why_talking": "CEO Jensen Huang interview about company's future direction and concerns about overvaluation and competition",
+      "what_saying": [
+        "Investor concerns about stock overvaluation despite strong AI demand growth",
+        "Leadership criticized for vague strategic vision focused on employee count rather than innovation",
+        "Gaming community frustrated by company's shift away from consumer GPU focus toward AI/datacenter",
+        "Mixed views on whether current AI boom is sustainable long-term for the company"
+      ],
+      "key_quotes": [
+        "I'm so worried about NVIDIA, I'll be glad if I'm worried for no reason",
+        "Well I should have invested in NVIDIA 11 years ago. If I had 10,000 stocks back in 2015 and sold them at its peak in 2024. I would be so rich I wouldn't need to work anymore",
+        "say SOMETHING about gaming bruh. Cmon",
+        "I'm so tired of hearing about nvda. One day it's green the next it's red",
+        "At 4.5T market cap Nvidia is only making money selling hardware"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "Victor Davis Hanson",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 28,
+      "sentiment": "positive",
+      "why_talking": "Frequent Fox Business guest providing commentary on Democratic Party strategy and Trump policies",
+      "what_saying": [
+        "Praised for his analysis of Democratic Party as having 'no agenda' and being purely negative",
+        "Support for his characterization of Democrats as nihilistic and obstructionist",
+        "Admiration for his intellectual analysis of political trends",
+        "Health concerns expressed by supporters"
+      ],
+      "key_quotes": [
+        "Mr. Hanson is right on! President Trump is changing history!",
+        "VDH is brilliant",
+        "Hi VICTOR. Great to hear from you. Sending heart felt thoughts your way for your health"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Mark Wayne Mullin",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 27,
+      "sentiment": "mixed",
+      "why_talking": "Confirmation hearings for Department of Homeland Security Secretary position",
+      "what_saying": [
+        "Support for his tough stance and 'alpha male' leadership style from Trump supporters",
+        "Criticism for calling dead individual 'deranged' and inflammatory rhetoric",
+        "Praise for his military/MMA background and no-nonsense approach",
+        "Concerns about his qualifications and temperament for DHS role"
+      ],
+      "key_quotes": [
+        "This man is a great leader!",
+        "He's a hot headed Maga fool",
+        "Love Mark Wayne's character!"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "JD Vance",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 26,
+      "sentiment": "negative",
+      "why_talking": "Defending Trump's Iran War performance as Vice President",
+      "what_saying": [
+        "Acting as Trump defender on Iran War strategy and performance",
+        "Mockery for brown-nosing behavior and loyalty to Trump",
+        "Speculation about future presidential ambitions in 2028",
+        "Criticism for maintaining straight face while defending controversial policies",
+        "Strong support for his representation of Trump's economic agenda",
+        "Praise for his communication skills and policy presentations",
+        "Anticipation for potential 2028 presidential run",
+        "Appreciation for his focus on American workers and manufacturing"
+      ],
+      "key_quotes": [
+        "JD what is that brown stuff on you nose?",
+        "JD Vance will be the first gay president of America if he's selected in 2028",
+        "Is he serious? He should get an award for keeping a straight face",
+        "Love VP",
+        "President Trump is blessed to have VP JD Vance"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Linux",
+      "type": "technology",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 25,
+      "sentiment": "positive",
+      "why_talking": "Mass migration from Windows due to stability issues and privacy concerns, particularly Linux Mint gaining popularity",
+      "what_saying": [
+        "Users switching en masse from Windows 11 citing better stability, performance, and privacy",
+        "Linux Mint specifically highlighted as user-friendly option for Windows refugees",
+        "European governments and organizations moving away from Microsoft to Linux distributions",
+        "Gaming compatibility improving though some anti-cheat games still problematic"
+      ],
+      "key_quotes": [
+        "I installed linux right before microslop started slopping about, I am now a spectator to this chaos",
+        "I've already moved to linux mint last week. Spent a few hours to learn linux things and everything is quite peaceful now",
+        "Many European governments are already cutting their ties to Microsoft and American cloud services and moving to Linux"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Nothing",
+      "type": "company",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 25,
+      "sentiment": "positive",
+      "why_talking": "Release of Nothing Phone 4A and 4A Pro models with new features and design",
+      "what_saying": [
+        "Positive reception for Nothing's phone design and unique Glyph lighting system features",
+        "Appreciation for company's approach to annual releases and focus on distinctive design elements",
+        "Technical discussions about camera specs, software customization, and hardware improvements",
+        "Comparisons to other flagship phones and praise for avoiding shareholders forcing yearly releases"
+      ],
+      "key_quotes": [
+        "nothing is definitely onto something",
+        "Nothing is lucky they don't have shareholders that force the company to release a flagship every year",
+        "BRING BACK THE GLYPHS CARL!!"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Claude",
+      "type": "ai_model",
+      "ticker": null,
+      "parent": "Anthropic",
+      "mention_count": 24,
+      "sentiment": "positive",
+      "why_talking": "New features released including app preview capabilities and scheduled tasks in Cowork, competing with other AI development tools",
+      "what_saying": [
+        "Users praising Claude as superior to other AI models for reasoning and logic tasks",
+        "New preview and scheduling features positioning Claude as comprehensive development platform",
+        "Strong user satisfaction with reliability compared to competitors like ChatGPT",
+        "Anthropic rapidly releasing features that compete with specialized AI development startups",
+        "Practical use case for coding and technical problem-solving",
+        "Reference to AI assistance in software installation and setup",
+        "Technical implementation context rather than promotional discussion",
+        "Utility-focused mention in programming context"
+      ],
+      "key_quotes": [
+        "I don't believe any models outperform Claude. What's your take?",
+        "Claude just be doin random side quests now",
+        "RIP Lovable and Bolt lol",
+        "I had to get claude code to make it work"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Cladven",
+      "type": "technology",
+      "ticker": "CLDV",
+      "parent": null,
+      "mention_count": 24,
+      "sentiment": "positive",
+      "why_talking": "Apparent cryptocurrency/blockchain project being heavily promoted across multiple comment threads",
+      "what_saying": [
+        "Promoted as 'Digital Gold' and future of retail transactions with burning mechanism",
+        "Claims of institutional adoption by major retailers like Walmart and Shopify integration",
+        "Positioned as hedge against traditional banking system and fiat currency instability",
+        "Described as 1000x potential investment opportunity in blockchain commerce infrastructure"
+      ],
+      "key_quotes": [
+        "Cladven is the Stripe of the blockchain. 1000x is a conservative target",
+        "Every merchant on Shopify is a potential Cladven user. Think about the volume",
+        "President's 'Digital Reserve' policy is basically a roadmap for Cladven adoption"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Rand Paul",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 22,
+      "sentiment": "mixed",
+      "why_talking": "Challenging Trump's DHS pick Mullin on anger issues during confirmation hearing",
+      "what_saying": [
+        "Questioning Markwayne Mullin's temperament and qualifications for DHS role",
+        "Highlighting past incidents of aggressive behavior in Senate hearings",
+        "Mixed reception - some see as voice of reason, others call him snake",
+        "Personal conflict with Mullin dating back to previous confrontations",
+        "Called 'snake in the grass' by fellow Republicans for obstructing party agenda",
+        "Criticized for fighting against government funding while Democrats remain united",
+        "Accused of being more universalist than Republican in approach",
+        "Viewed as problematic obstructionist who should retire",
+        "Involved in heated exchange with fellow Republican senator",
+        "Called a 'snake' by Senator Mullin in public dispute",
+        "Defending himself against accusations of promoting violence",
+        "Senate tensions reflecting broader Republican party divisions"
+      ],
+      "key_quotes": [
+        "OMG Rand Paul and MTG have become the voices of reason??",
+        "Rand Paul is having a personal issue with Mullin",
+        "Paul is a snake",
+        "Well, Rand Paul is a snake in the grass. He needs to be primaried out",
+        "Rand Paul could be fighting the democrats about getting the Govt. back open but instead he is fighting Americans"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Strait of Hormuz",
+      "type": "location",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 21,
+      "sentiment": "mixed",
+      "why_talking": "Critical oil shipping route threatened by Iran conflict, affecting global energy markets",
+      "what_saying": [
+        "Recognition of strategic importance for global oil supply with 20% of world's oil passing through",
+        "Debate over whether US should bear cost of protecting international shipping",
+        "Calls for countries that benefit from oil shipments to contribute to protection",
+        "Questions about why oil prices rise if US is energy independent"
+      ],
+      "key_quotes": [
+        "Clear it, secure it, and then tax every ship that goes through it",
+        "Any country except for US and Israel can pass through Strait of Hormuz, Iranian minister says",
+        "let the countries that needs that oil take some interest in protecting it"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Microsoft",
+      "type": "company",
+      "ticker": "MSFT",
+      "parent": null,
+      "mention_count": 18,
+      "sentiment": "negative",
+      "why_talking": "Widespread criticism over Windows 11 bugs, forced AI integration, and user experience degradation",
+      "what_saying": [
+        "Company accused of prioritizing AI integration over basic system stability and user needs",
+        "Users frustrated with forced cloud integration and subscription model push",
+        "Criticism for using AI to write operating system code leading to frequent bugs",
+        "Loss of user trust due to privacy concerns and forced feature adoption"
+      ],
+      "key_quotes": [
+        "Malware 11: Slop Inside.",
+        "How do they consistently add an operating system breaking bug with every update?",
+        "They use AI"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Benjamin Netanyahu",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 18,
+      "sentiment": "negative",
+      "why_talking": "References to Netanyahu's testimony about Iraqi WMDs and current influence",
+      "what_saying": [
+        "Criticism for past testimony supporting false WMD claims about Iraq",
+        "Accusations of ongoing influence on US policy toward Iran",
+        "Complaints about media coverage omitting his role in policy decisions",
+        "Skepticism about his current policy positions and motivations"
+      ],
+      "key_quotes": [
+        "You forgot Netanyahu testifying that Iraq had WMD in congress",
+        "Didn't mention Netanyahu's influence in that decision, as well as the current Iran War's decision",
+        "Netanyahu and Trump bought this on. Iran has every right to retaliate",
+        "Nathanyahu and trump want Gaza for resorts development",
+        "Netanyahu believes he can hasten the messiah"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "HDFC Bank",
+      "type": "company",
+      "ticker": "HDFCBANK",
+      "parent": null,
+      "mention_count": 17,
+      "sentiment": "negative",
+      "why_talking": "Chairman Atanu Chakraborty resignation citing ethical concerns and 9% stock drop",
+      "what_saying": [
+        "Major stock decline - biggest fall since COVID crash",
+        "Chairman resignation over ethical concerns raises questions",
+        "Speculation about banking sector stability and potential collapse",
+        "Political motivations suggested behind leadership exit",
+        "Questions about regulatory awareness and oversight by RBI and SEBI",
+        "Discussion of regulatory scrutiny in Indian banking sector",
+        "Neutral inquiry about regulatory processes rather than specific issues",
+        "Part of broader banking sector regulatory discussion",
+        "Chairman resignation linked to ethics concerns causing market panic and investor uncertainty",
+        "Stock falling 5% with bank denying governance issues but market remaining skeptical",
+        "Mixed investment advice with some suggesting buying opportunity while others warning citizens to beware",
+        "Questions raised about potential wrongdoing requiring investigation of outgoing leadership"
+      ],
+      "key_quotes": [
+        "Banks have always been greedy, Waiting for The Big Short 2008",
+        "seems Banks are going to collapse?",
+        "Definitely some political background to his exit",
+        "Am curious, was RBI not aware regarding HDFC Bank ? RBI and SEBI nowadays are hawk-eyed",
+        "The word 'ethics' is what caused all the panic"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Qatar",
+      "type": "country",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 17,
+      "sentiment": "negative",
+      "why_talking": "Global LNG shock affecting major gas supplier",
+      "what_saying": [
+        "Major LNG supplier impacted by regional conflict",
+        "Global gas price surge linked to Middle East tensions",
+        "Supply disruption concerns for major energy markets",
+        "Part of broader energy security crisis in the region",
+        "Collateral victim of Iran-Israel energy infrastructure war despite diplomatic relations with Iran",
+        "Major LNG supply disruption affecting global energy markets and Asian heating/cooking gas",
+        "Hosts US Central Command facilities at Al Udeid Air Base complicating neutrality claims",
+        "Seen as paying price for providing Trump with aircraft support while trying to stay neutral"
+      ],
+      "key_quotes": [
+        "Global LNG Shock: Qatar Hit, Gas Prices Surge, India Faces Supply Risks",
+        "Qatar's like 'I gave you a plane for this?'",
+        "Qatar LNG Plant Suffers 'Extensive Damage' After Iran Strike",
+        "Iran: 'We hit Qatar!' Asia: 'Wait, our heating and cooking gas just disappeared.'"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Bitcoin",
+      "type": "cryptocurrency",
+      "ticker": "BTC",
+      "parent": null,
+      "mention_count": 17,
+      "sentiment": "mixed",
+      "why_talking": "Price pressure following hotter inflation data and regulatory uncertainty",
+      "what_saying": [
+        "Facing downward pressure from inflation data and macro economic concerns",
+        "Regulatory clarity issues affecting long-term asset classification and treatment",
+        "Mixed investor sentiment on crypto performance vs traditional markets",
+        "Debate over crypto's independence from US economic policy impacts",
+        "Will be treated more as commodity like gold strengthening digital gold status",
+        "Benefits from clearer regulatory framework encouraging institutional adoption",
+        "Acting strange in markets during current geopolitical tensions",
+        "Positioned as safer institutional asset under new guidelines"
+      ],
+      "key_quotes": [
+        "It cratered after the clarification of how it will be treated as an asset",
+        "Bitcoin will hit zero its just a matter of when",
+        "I don't understand why people think that what happens in America pushes crypto up and down",
+        "Bitcoin will be treated more as a commodity like gold",
+        "This is very good news for Bitcoin and ETH holders"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Spanish Inquisition",
+      "type": "event",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 15,
+      "sentiment": "mixed",
+      "why_talking": "Ada Palmer interview on Dwarkesh Patel podcast revealing how Inquisition accidentally created peer review process for science",
+      "what_saying": [
+        "Historical revelation that Inquisition's verification process accidentally created modern peer review system",
+        "Debate over whether this was deliberate innovation or unintended consequence of censorship efforts",
+        "Discussion of Catholic Church's complex relationship with scientific advancement throughout history",
+        "Monty Python references and jokes about 'nobody expects the Spanish Inquisition' meme"
+      ],
+      "key_quotes": [
+        "This wasn't accidental, this was deliberate and creatively brilliant. Give them credit lol",
+        "Can't say I expected that!",
+        "NOBODY expects the Spanish Inquisition! Our chief weapon is surprise...surprise and fear"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Chase Hughes",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 15,
+      "sentiment": "positive",
+      "why_talking": "Popular return guest on The Diary of a CEO podcast discussing manipulation and influence techniques",
+      "what_saying": [
+        "Highly praised for practical knowledge about human psychology and influence techniques",
+        "Viewers appreciate his straightforward, no-nonsense approach to complex behavioral topics",
+        "Some questioning accuracy of specific anecdotes while acknowledging core expertise value",
+        "Strong following requesting more appearances and content from him"
+      ],
+      "key_quotes": [
+        "I think Chase Hughes is a genius! Love the way he teaches us amazing, helpful things",
+        "When Chase speaks I pay attention. He knows what he's talking about and I take him seriously",
+        "Chase you're back!! Yes my 2 favourite people reunited"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Iraq",
+      "type": "country",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 15,
+      "sentiment": "negative",
+      "why_talking": "Discussion of 2003 US invasion, WMD claims, and ongoing Middle East conflicts",
+      "what_saying": [
+        "Strong condemnation of US invasion based on false WMD claims and ulterior oil motives",
+        "Personal accounts from Iraqi commenters about family losses and forced displacement",
+        "Historical context about US support for Saddam Hussein and chemical weapons provision",
+        "Criticism of manipulation and propaganda used to justify invasion"
+      ],
+      "key_quotes": [
+        "This war took half of my family and forced me to leave my country",
+        "You forgot to mention that it was USA that gave Iraq chemical weapons",
+        "AIPAC paid people to say Iraq has weapons of mass destruction"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Dubai",
+      "type": "city",
+      "ticker": null,
+      "parent": "UAE",
+      "mention_count": 15,
+      "sentiment": "mixed",
+      "why_talking": "Regional conflict impact and missile attacks affecting the emirate",
+      "what_saying": [
+        "Popular destination for Indians now facing security concerns",
+        "Economic impact from regional warfare affecting stability",
+        "Humor about insurance and golden visa programs amid conflict",
+        "Concerns about safety of expatriate community",
+        "Central Dubai struck by Iranian drone attack as part of regional escalation",
+        "Part of broader Iranian campaign targeting Gulf infrastructure",
+        "Represents expansion of Iran-Israel conflict into UAE territory",
+        "Demonstrates Iran's capability to strike major Gulf commercial centers"
+      ],
+      "key_quotes": [
+        "Habibi come to dubai but firstly buy a life insurance & here insurance is tax free \ud83d\ude06\ud83d\ude06\ud83d\ude06",
+        "Dubai was always the bet that the Middle East could have a city above the conflict. That bet is being stress-tested right now",
+        "Tax free salary in Dubai"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Cryptocurrency",
+      "type": "technology",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 15,
+      "sentiment": "mixed",
+      "why_talking": "SEC providing new clarity on digital asset regulation and crypto market positioning",
+      "what_saying": [
+        "SEC clarifying that most crypto assets are not securities under new interpretation",
+        "Concerns about heavy taxation and regulation in EU affecting adoption",
+        "Debate over whether various tokens qualify as securities or commodities",
+        "Optimism for Bitcoin and Ethereum as institutional safe assets"
+      ],
+      "key_quotes": [
+        "This is very good news for Bitcoin and ETH holders. Much clearer lanes",
+        "Crypto will be taxed very hard here in the EU",
+        "obviously these are securities. golden age of grift baby"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "inflation",
+      "type": "economic_indicator",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 14,
+      "sentiment": "negative",
+      "why_talking": "Above-target inflation readings affecting Fed policy and economic outlook amid war",
+      "what_saying": [
+        "Persistent inflation above Fed's 2% target despite rate increases",
+        "War-driven oil price increases adding to inflationary pressures",
+        "Tariffs contributing additional inflationary burden on consumers",
+        "Fed struggling to balance rate policy amid competing economic pressures"
+      ],
+      "key_quotes": [
+        "Six years inflation has been above 2%. What kind of target is that?",
+        "Inflation is permanent...chipping away at the peoples' standard of living",
+        "tariffs caused inflation, agriculture market loss"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Ada Palmer",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 12,
+      "sentiment": "positive",
+      "why_talking": "History professor interview on Dwarkesh Patel's podcast about Spanish Inquisition's accidental role in developing scientific peer review",
+      "what_saying": [
+        "Praised for revealing fascinating historical connection between Inquisition and modern scientific method",
+        "Viewers appreciating her engaging presentation of complex historical topics",
+        "Some questioning accuracy of specific claims about Vatican laboratory existence",
+        "Generally positive reception as knowledgeable and entertaining guest"
+      ],
+      "key_quotes": [
+        "One of your best guests in my humble yet valid opinion",
+        "This woman is so delightful! I love listening to her knowledge",
+        "She is at best misleading, at worst completely making up this stuff"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Maureen Finn Austin",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 12,
+      "sentiment": "neutral",
+      "why_talking": "Financial advisor being promoted across multiple comment threads as investment mentor",
+      "what_saying": [
+        "Described as rare genuine financial mentor using multiple analysis approaches",
+        "Praised for transparency and risk management rather than hype",
+        "Promoted as providing clear guidance and analysis-driven trades",
+        "Contact information shared through WhatsApp for consultation"
+      ],
+      "key_quotes": [
+        "Genuine financial mentors are rare - and she's one of them",
+        "Maureen Finn Austin analyzes the market from multiple angles",
+        "What I appreciated about Maureen Finn Austin's approach is that everything is explained clearly"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Jensen Huang",
+      "type": "person",
+      "ticker": null,
+      "parent": "NVIDIA",
+      "mention_count": 11,
+      "sentiment": "mixed",
+      "why_talking": "CNET interview about NVIDIA's future strategy raising questions about company direction and leadership vision",
+      "what_saying": [
+        "Interview responses criticized as vague and lacking clear strategic direction for the company",
+        "Focus on employee count as primary metric seen as misplaced priority for innovation company",
+        "Some concern about disconnect between AI hype and practical long-term business strategy",
+        "Gaming community wants more focus on consumer products rather than just datacenter AI"
+      ],
+      "key_quotes": [
+        "This answer just screams, 'we don't have any clear goes, just going for whatever seems popular.' Doesn't look good at all for a company that supposedly innovates",
+        "say SOMETHING about gaming bruh. Cmon",
+        "Jensen is everywhere trying to sell the stock to people like a low-class salesman",
+        "he trots a robot out controlled by people in next room every time he wants to boost his stock"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "Markwayne Mullin",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 11,
+      "sentiment": "negative",
+      "why_talking": "DHS Secretary nomination hearing with Rand Paul challenging anger issues",
+      "what_saying": [
+        "Strong criticism of qualifications for Homeland Security Secretary position",
+        "Rand Paul highlighting anger management issues and past violent incidents",
+        "Described as unqualified Trump loyalist with history of aggressive behavior",
+        "Concerns about fitness for critical national security role",
+        "Criticism for being stupid, arrogant, and having macho attitude",
+        "Viewed as weak person who gets angry easily and loves violence",
+        "Considered unfit to lead homeland security",
+        "Involved in explosive confrontations with other senators"
+      ],
+      "key_quotes": [
+        "MarkWayne is totally unqualified for the position of Secretary of Homeland Security",
+        "this guy is another perfect for maga more brawn than brains",
+        "Doesn't condone violence but tried to fight a guy during testimony",
+        "This guy is so stupid and arrogant. He thinks he is Gods gift to men with no his machoism",
+        "Unfit to lead homeland security"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Pete Hegseth",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 11,
+      "sentiment": "mixed",
+      "why_talking": "Secretary of War briefing on West Asia crisis and Iran conflict",
+      "what_saying": [
+        "Briefing on 'This Isn't a Forever War' regarding Middle East conflict",
+        "Comparison to Mullin in terms of Trump appointment qualifications",
+        "Role in explaining US military strategy in Iran conflict",
+        "Part of broader criticism of Trump cabinet appointments",
+        "Praised by supporters as exemplifying 'best of the best' in Trump administration",
+        "Criticized as 'war mongering POS' who doesn't care about American lives",
+        "Described as former Fox weekend host lacking experience to run Defense Department",
+        "Some view attacks on him as sign of his effectiveness",
+        "Residence under drone surveillance creating security alert",
+        "Part of pattern targeting Trump administration nominees",
+        "Potential Iranian or foreign intelligence operation",
+        "US officials on high alert following drone detections"
+      ],
+      "key_quotes": [
+        "This guy is as qualified as Pete Hegseth!",
+        "\"This Isn't a Forever War\u2026\": US Secy Of War Pete Hegseth Briefs",
+        "Pete exemplifies the best of the best, and we're so blessed to have him on our side",
+        "Dudes a war mongering POS does not care about American lives",
+        "People attack Pete Hegseth because his is effective in his job"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Pakistan",
+      "type": "country",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 11,
+      "sentiment": "mixed",
+      "why_talking": "Tulsi Gabbard warning about Pakistan's long-range missile capabilities",
+      "what_saying": [
+        "Discussion of Pakistan's missile development and regional security threats",
+        "Debate over nuclear capabilities and regional power balance",
+        "Mixed views on Pakistan's military capabilities vs major powers",
+        "Geopolitical concerns about nuclear proliferation in South Asia",
+        "Accusations of Pakistan being terrorist-controlled state with nuclear weapons",
+        "Concerns about military control over elected government",
+        "Defensive responses claiming Pakistan hunts superpowers and is not US threat",
+        "Fears of Pakistan being next US target after Iran in Muslim countries"
+      ],
+      "key_quotes": [
+        "Well done pakistan",
+        "You cannot fight even with Iran if you face pakistan , USA will be vanished from earth",
+        "But a Muslim Country can't have it. It is very dangerous",
+        "Pakistan the elected government is the puppet of TERRORISTS and the terrorised Military",
+        "USA is fighting wars against every Muslim country one by one. After Iran, next is Pakistan and Turkey?"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Giordano Bruno",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 10,
+      "sentiment": "mixed",
+      "why_talking": "Discussion about his execution during Spanish Inquisition and whether it was for scientific beliefs or religious heresy",
+      "what_saying": [
+        "Debate over whether he was executed for scientific theories about multiple worlds or religious heresy",
+        "Some defending him as martyr for free thought and early believer in extraterrestrial life",
+        "Others arguing his execution was purely religious and political, not scientific persecution",
+        "Referenced in popular culture including Avenged Sevenfold song 'Roman Sky'"
+      ],
+      "key_quotes": [
+        "Okay but you left about the best part about Bruno! He was burned for believing in aliens, in 'the multiplicity of worlds' like our own with independent life",
+        "Giordano Bruno was executed not becuase of science. He was executed because he denied church doctrines",
+        "Giordano bruno. My personal hero"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Anthropic",
+      "type": "company",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 10,
+      "sentiment": "positive",
+      "why_talking": "Rapid feature releases for Claude AI including app preview and scheduling capabilities competing with development tools",
+      "what_saying": [
+        "Praised for rapid innovation cycle and responsive product development",
+        "Users appreciating Claude's superiority over competing AI models for coding tasks",
+        "New features like app preview and scheduled tasks killing competitors like Lovable and Bolt",
+        "Strong user loyalty and willingness to pay for premium features",
+        "Reference to AI companies and their impact on careers and limitations",
+        "Discussion of AI adoption challenges for professionals",
+        "Mixed sentiment about AI's current capabilities versus promises",
+        "Concerns about AI limiting rather than enhancing career opportunities"
+      ],
+      "key_quotes": [
+        "thats why claude is worth my money lol",
+        "I swear it's like they read my mind the moment I'm like god I wish this feature existed\u2026. BOOM it launches that night",
+        "Anthropic decides to kill a few startups each time releasing a feature",
+        "I don't put limits on AI, but AI is limiting my career. HELP \ud83d\ude02"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Saddam Hussein",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 10,
+      "sentiment": "mixed",
+      "why_talking": "Historical discussion about Iraq-Iran war and US support for Saddam",
+      "what_saying": [
+        "Recognition that Saddam was a US-supported puppet and tool for regional control",
+        "Discussion of his role as aggressor in Iran-Iraq war with US backing",
+        "Acknowledgment of his use of chemical weapons provided by US against Iran",
+        "Mixed views on whether his removal justified the massive civilian casualties that followed"
+      ],
+      "key_quotes": [
+        "Saddam was a tool, a puppet planted by the US and Britain",
+        "As an Iraqi i fully support Iran in this war, Saddam was the aggressor",
+        "Was Sadam better?"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Jim Cramer",
+      "type": "person",
+      "ticker": null,
+      "parent": "CNBC",
+      "mention_count": 9,
+      "sentiment": "mixed",
+      "why_talking": "Mad Money commentary on Nvidia valuation and market conditions",
+      "what_saying": [
+        "Positive commentary on Nvidia as undervalued despite high market cap",
+        "Mixed audience reaction to his stock recommendations and market analysis",
+        "Some viewers expressing loyalty while others skeptical of his advice",
+        "Discussion of his influence on retail investor decision-making"
+      ],
+      "key_quotes": [
+        "Only fools will believe this clown",
+        "jimbo! this is why i love u guy. the saint of wall street",
+        "Let See What Mr. Jim Cramer Will Say On 'Mad Money'"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Dwarkesh Patel",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 8,
+      "sentiment": "mixed",
+      "why_talking": "Popular podcaster interviewing various experts, compared to other interviewers like Lex Fridman",
+      "what_saying": [
+        "Praised for interviewing interesting and knowledgeable experts across diverse fields",
+        "Some criticism for accepting funding from Peter Thiel and interviewing controversial figures",
+        "Compared favorably to Lex Fridman as better interviewer despite similar funding sources",
+        "Accused by some of promoting right-wing perspectives through guest selection"
+      ],
+      "key_quotes": [
+        "Is that fellow just collecting all of the most interesting experts in the world? They seem to be trying, and succeeding!",
+        "Like Lex Fridman, he drinks from the same trough of right wing Peter Thiel funding",
+        "I will give Patel *some* credit though in that he is a far better interviewer than Fridman is"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Private Credit",
+      "type": "other",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 8,
+      "sentiment": "negative",
+      "why_talking": "Concerns about potential collapse of private credit market creating systemic financial risks similar to 2008 subprime crisis",
+      "what_saying": [
+        "Market participants worried about overleveraged private credit firms facing potential collapse",
+        "Comparisons to 2008 subprime mortgage crisis with similar risk patterns emerging",
+        "Debate over whether private credit collapse would be systemic risk or contained problem",
+        "Warren Buffett's cash accumulation seen as warning signal by some observers"
+      ],
+      "key_quotes": [
+        "Sounds like the sub prime mortgage crises of 2007 all over again, only this time it's the private credit market",
+        "Private Credit? More likely Parasite Credit. Both Private Credit and Private Equity are systems that created to transfer the wealth from majority of people to the elites",
+        "yea reason i stopped investing in stocks, i did not know this was coming but when warren started staking money then you better pay attection"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Marques Brownlee",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 8,
+      "sentiment": "positive",
+      "why_talking": "Released review of Nothing Phone 4A/Pro with detailed analysis",
+      "what_saying": [
+        "Praise for Marques' review style and analytical insights beyond basic product features",
+        "Appreciation for his detailed coverage of phone specifications and user experience",
+        "Positive comments about his review methodology and presentation style",
+        "Recognition of his influence in tech review space"
+      ],
+      "key_quotes": [
+        "I really enjoy how Marques not only reviews the products but also always gives some analysis and insights",
+        "Best review, you are mentioning very important points, that i didn't hear from the others"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Operation Epic Fury",
+      "type": "event",
+      "ticker": null,
+      "parent": "US Military",
+      "mention_count": 8,
+      "sentiment": "mixed",
+      "why_talking": "Active US military operation against Iran causing oil price spikes and economic disruption",
+      "what_saying": [
+        "Military leadership providing updates from Pentagon on operation progress",
+        "Critics calling it 'Operation Epic Failure' and questioning necessity",
+        "Supporters viewing it as necessary rescue mission for Iranian people",
+        "Economic analysts warning of prolonged impact on markets"
+      ],
+      "key_quotes": [
+        "Operation Epic Failure. No new wars",
+        "Operation Epstein Fury is going to break America's economy",
+        "This is NOT a war. This is a RESCUE MISSION of the Iranian people"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "LumenDeFi",
+      "type": "technology",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 8,
+      "sentiment": "neutral",
+      "why_talking": "Emerging DeFi platform being discussed as alternative to traditional crypto trading",
+      "what_saying": [
+        "Presented as part of ongoing DeFi evolution offering different perspective",
+        "Described as platform where system manages processes while investors monitor",
+        "Positioned as alternative way to engage with digital assets",
+        "Mentioned in context of adapting to EU regulation and taxation"
+      ],
+      "key_quotes": [
+        "platforms such as LumenDeFi offering alternative ways to engage with digital assets",
+        "I've come across several discussions about LumenDeFi recently",
+        "After doing my research, I moved forward with LumenDeFi through a broker"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "XA90P",
+      "type": "technology",
+      "ticker": "XA90P",
+      "parent": null,
+      "mention_count": 8,
+      "sentiment": "positive",
+      "why_talking": "Cryptocurrency token being promoted during market volatility and Fed announcement coverage",
+      "what_saying": [
+        "Promoted as high-performing crypto investment during traditional market uncertainty",
+        "Described as 'on steroids' with strong green performance amid broader market volatility",
+        "Suggested as 75% allocation in hypothetical $10K crypto portfolio alongside Bitcoin",
+        "Positioned as benefiting from current financial system instability and Fed policy"
+      ],
+      "key_quotes": [
+        "$XA90P is on steroids.. GREEN GREEN GEEEN",
+        "If I had $10K to start crypto now I would do $2500 into BTC and $7500 into $XA90P",
+        "In XA90P we trust \ud83d\ude4f"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Jeff Currie",
+      "type": "person",
+      "ticker": null,
+      "parent": "Carlyle",
+      "mention_count": 8,
+      "sentiment": "positive",
+      "why_talking": "Oil market analyst providing commentary on crude price surge due to Iran conflict",
+      "what_saying": [
+        "Says no policy response can stop crude oil price ascent during war",
+        "Oil market is underpricing the Iran supply shock",
+        "Providing expert analysis on energy market dynamics",
+        "His insights are praised as 'golden' by viewers"
+      ],
+      "key_quotes": [
+        "Jeff Currie's insights are golden. Love his perspective and data points",
+        "Oil market underpricing Iran supply shock, Carlyle's Currie says",
+        "No Policy Response Can Stop Crude's Ascent"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "TikTok",
+      "type": "platform",
+      "ticker": null,
+      "parent": "ByteDance",
+      "mention_count": 7,
+      "sentiment": "neutral",
+      "why_talking": "Discussion of relationship with Chinese parent platform DouYin in CNBC China documentary",
+      "what_saying": [
+        "Clarification that TikTok is international version of DouYin, not Chinese copy",
+        "Educational discussion about platform origins and global vs domestic versions",
+        "Part of broader conversation about Chinese technology and international expansion",
+        "Neutral coverage focused on factual correction rather than controversy"
+      ],
+      "key_quotes": [
+        "DouYin is not the Chinese version of TikTok, it make it sounds like China just copy TikTok for the taste of domestic users",
+        "It is the TikTok that is the international version of DouYin"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Tim Cook",
+      "type": "person",
+      "ticker": null,
+      "parent": "Apple",
+      "mention_count": 7,
+      "sentiment": "negative",
+      "why_talking": "Apple facing talent exodus and concerns about leadership under Cook's tenure",
+      "what_saying": [
+        "Called for Cook's resignation due to lack of breakthrough innovations",
+        "Criticized for having no energy and being described as 'cooked'",
+        "Blamed for failed projects like Project Titan and delayed home products",
+        "Accused of ego issues when confronted about retirement speculation"
+      ],
+      "key_quotes": [
+        "Cook has to go. Period. Zero break-thru innovations under Cook!",
+        "Cook has no energy doing things. Rotten Apple!",
+        "Cook's tell was that he was getting upset at people reporting of his retirement/stepping down in 2026"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Artificial Intelligence",
+      "type": "technology",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 7,
+      "sentiment": "mixed",
+      "why_talking": "AI driving job cuts at banks, investment bubble concerns, and fundamental changes to economy",
+      "what_saying": [
+        "HSBC planning job cuts from multiyear AI-fueled overhaul",
+        "Debate over whether AI represents investment bubble or genuine transformation",
+        "AI automation changing relationship between employment and inflation",
+        "Several AI stocks mentioned as trading opportunities"
+      ],
+      "key_quotes": [
+        "HSBC Weighs Job Cuts From Multiyear AI-Fueled Overhaul",
+        "A lot of people claim we either are or are about to be in an AI bubble",
+        "AI-driven automation is fundamentally reshaping the relationship between employment and inflation"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Xi Jinping",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 6,
+      "sentiment": "mixed",
+      "why_talking": "Analysis of subtle changes in China's Two Sessions political theater and implications for military leadership",
+      "what_saying": [
+        "Speculation about power consolidation through military purges and unusual meeting dynamics",
+        "Discussion of softer diplomatic tone possibly influenced by US actions in Middle East",
+        "Questions about meeting with Trump and China's strategic positioning globally",
+        "Analysis of fear-based governance style and its sustainability"
+      ],
+      "key_quotes": [
+        "I think both generals are dead \u2620\ufe0f and I don't think Xi will get his meeting with Trump",
+        "Xi Jinping is turning losing face into an artform",
+        "You Can't Govern In A Sentiment Of Fear Gripping The Nation"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Johnny Harris",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 6,
+      "sentiment": "mixed",
+      "why_talking": "Created videos about Middle East conflicts and US foreign policy",
+      "what_saying": [
+        "Appreciation for his investigative work on early 2000s wars",
+        "Some criticism for allegedly omitting certain perspectives or influences",
+        "Praise for explaining complex geopolitical situations",
+        "Questions about potential bias or funding sources affecting coverage"
+      ],
+      "key_quotes": [
+        "YES!!! Please keep investigating these early 2000s wars",
+        "Another great video. Thanks, Johnny!",
+        "Are you taking contributions form AIPAC ?"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Japan",
+      "type": "other",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 6,
+      "sentiment": "mixed",
+      "why_talking": "Trump visit difficulties and pressure to support Iran War",
+      "what_saying": [
+        "Japanese officials calling Trump visit 'extremely difficult' amid war pressure",
+        "Constitutional constraints on military involvement due to WWII surrender terms",
+        "Debate over Japan's role in supporting US Middle East operations",
+        "Recognition of Japan as key US ally despite reluctance for military involvement"
+      ],
+      "key_quotes": [
+        "Japan. you are next to all the enemy's. We have your back!!",
+        "Japan's conditions of surrender during WWII says it all. NO ACTS OF AGGRESSION",
+        "No War japan\ud83c\udf89"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Starbucks",
+      "type": "company",
+      "ticker": "SBUX",
+      "parent": null,
+      "mention_count": 6,
+      "sentiment": "neutral",
+      "why_talking": "Discussion of expansion in China market as part of Western business presence",
+      "what_saying": [
+        "Positive expansion story in China with new locations opening regularly",
+        "Used as example of successful Western business operations in Chinese market",
+        "Part of broader discussion about international business and market dynamics",
+        "Neutral coverage focused on business growth rather than controversy"
+      ],
+      "key_quotes": [
+        "Starbucks and McDonalds open new stores in China every day",
+        "Starbucks opens a new outlet in China every nine hours"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Apple",
+      "type": "company",
+      "ticker": "AAPL",
+      "parent": null,
+      "mention_count": 6,
+      "sentiment": "negative",
+      "why_talking": "Facing significant talent exodus and leadership concerns affecting company direction",
+      "what_saying": [
+        "Top talent leaving company creating leadership void",
+        "Failed to launch major projects under current management",
+        "Called a 'Loser' by critics questioning innovation pipeline",
+        "Management issues cited as primary reason for departures over compensation"
+      ],
+      "key_quotes": [
+        "Please stop top talent of apple\ud83d\ude22\u2764",
+        "Apple is a Loser!",
+        "People leave because of management not compensation"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Gavin Newsom",
+      "type": "person",
+      "ticker": null,
+      "parent": "California",
+      "mention_count": 6,
+      "sentiment": "negative",
+      "why_talking": "California governor facing criticism over state's economic decline and gas price policies",
+      "what_saying": [
+        "Called 'slimy' and blamed for California's downward economic spiral",
+        "Criticized for blaming gas price rises on Trump and Iran conflict",
+        "Mocked for presidential ambitions given California's problems",
+        "Accused of trying to eliminate combustion engines through backdoor policies"
+      ],
+      "key_quotes": [
+        "Newsom is so slimy...",
+        "And yet Gavin thinks he could be President.\ud83e\udd23\ud83e\udd23\ud83e\udd23\ud83e\udd23",
+        "Only proves how stupid Gavin Newsom is, trying to blame the rising price of gasoline on Trump and Iran"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "SEC",
+      "type": "organization",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 6,
+      "sentiment": "mixed",
+      "why_talking": "Chair Atkins providing new interpretation of digital assets and crypto regulation",
+      "what_saying": [
+        "Clarifying position that most crypto assets are not securities",
+        "Criticized for having no clue what they're regulating and rushing decisions",
+        "Praised for providing clearer regulatory lanes for crypto market",
+        "Questioned why clarification took over 10 years to provide"
+      ],
+      "key_quotes": [
+        "SEC clarifies position on crypto: Chair Atkins on new interpretation",
+        "Sounds like SEC have no clue what they are regulating",
+        "Why did it take over 10 years to do this?"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Save America Act",
+      "type": "policy",
+      "ticker": null,
+      "parent": "US Congress",
+      "mention_count": 6,
+      "sentiment": "positive",
+      "why_talking": "Voter ID legislation with claimed 85% public support facing political opposition",
+      "what_saying": [
+        "Supporters demand senators vote yes or face electoral consequences",
+        "Concerns about politicians watering down the legislation",
+        "Claims 85% approval rating across party lines for election security",
+        "Warnings that any senator voting no should expect to lose their seat"
+      ],
+      "key_quotes": [
+        "Any senator who votes no on the save America Act to better expect to lose their seat",
+        "These politicians will water down the Save America Act",
+        "If you can't pass something with 85% approval, what can you pass"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Oil",
+      "type": "commodity",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 6,
+      "sentiment": "negative",
+      "why_talking": "Prices surging due to Iran war disrupting supply chains and Strait of Hormuz blockade",
+      "what_saying": [
+        "Gasoline prices hitting $5.39 per gallon at some stations",
+        "Strategic petroleum reserves can only release 1-3 million barrels per day",
+        "Prices expected to continue rising for months due to supply disruptions",
+        "War profiteering concerns as oil companies benefit from conflict"
+      ],
+      "key_quotes": [
+        "I just paid $5.39 per gallon tonight, for gasoline",
+        "400 Million Barrels of strategic reserves CAN NOT BE RELEASED INSTANTLY",
+        "US Oil co's like Prairie Operating are gonna rip it from Q2 onwards"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Elon Musk",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 5,
+      "sentiment": "mixed",
+      "why_talking": "Reference to autism and productivity in context of Chamath's comments",
+      "what_saying": [
+        "Referenced as example of highly productive person with autism traits",
+        "Discussion of neurodiversity and business success",
+        "Positive association with getting things done efficiently",
+        "Context of autism as potential advantage in certain work environments"
+      ],
+      "key_quotes": [
+        "Elon is that friend \ud83d\ude05",
+        "Elon's vision for X-Pay becomes a reality the moment it integrates with the Cladven liquidity engine",
+        "Elon Musk's 'Everything App' is a hollow shell without the Cladven liquidity protocol"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": true
+    },
+    {
+      "name": "Drake",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 5,
+      "sentiment": "negative",
+      "why_talking": "Bloomberg analysis of his gambling activities and concerns about influencer impact on youth gambling",
+      "what_saying": [
+        "Accused of being a 'scammer and liar' regarding gambling promotions",
+        "Bloomberg examined 'the math behind Drake's lucky spins'",
+        "Concerns about influencers like Drake promoting gambling to young audiences",
+        "Debate over whether his gambling content constitutes harmful influence"
+      ],
+      "key_quotes": [
+        "drake is scamer and a lier",
+        "So influencers getting your kids to gamble is so what???",
+        "The Math Behind Drake's Lucky Spins"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Pam Bondi",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 5,
+      "sentiment": "neutral",
+      "why_talking": "Ordered to testify in Jeffrey Epstein probe as new files emerge",
+      "what_saying": [
+        "Compelled to provide testimony in ongoing Epstein investigation",
+        "Part of broader probe into Epstein network connections",
+        "New files creating additional scrutiny of officials",
+        "Legal proceedings expanding to include more witnesses",
+        "Democrats walking out of Epstein briefing accusing her of orchestrating cover-up",
+        "Predictions she will face imprisonment for trying to protect Trump",
+        "Part of broader Epstein files controversy involving Trump administration",
+        "Criticism focused on potential obstruction of justice and criminal protection"
+      ],
+      "key_quotes": [
+        "Pam Bondi Ordered to Testify in Jeffrey Epstein Probe",
+        "Bondi will go to jail trying to save a criminal president and a sexual predator"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Saudi Arabia",
+      "type": "country",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 5,
+      "sentiment": "mixed",
+      "why_talking": "Under attack from Iran with Aramco facility explosions and issuing military retaliation warnings",
+      "what_saying": [
+        "Aramco facility hit by Iranian missile attack with explosions reported",
+        "Warning Iran of military retaliation after wave of Gulf attacks",
+        "Heavy criticism as 'kingdom of hypocrites' with calls for democracy",
+        "Accused of not being truly Islamic for not supporting Gaza and accepting Israeli friendship offers"
+      ],
+      "key_quotes": [
+        "The kingdom of hypocrites",
+        "We need democracy in Saudi Arabia and qatar\ud83d\ude05\ud83d\ude05\ud83d\ude05 hope EU and US will help\ud83d\ude02\ud83d\ude02\ud83d\ude02",
+        "Now Saudi Arabia needs to experience the real attack if not Gaza"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Tel Aviv",
+      "type": "city",
+      "ticker": null,
+      "parent": "Israel",
+      "mention_count": 5,
+      "sentiment": "neutral",
+      "why_talking": "Hit by Iranian missiles causing building damage and citywide sirens",
+      "what_saying": [
+        "Building damaged by Iranian missile strike with sirens blaring across city",
+        "Target of Iranian retaliation in escalating Middle East conflict",
+        "Represents direct attack on major Israeli urban center",
+        "Part of Iran's response to Israeli military operations",
+        "Iranian missiles successfully hitting Tel Aviv train station and halting services",
+        "Celebrations from Iran supporters over successful strikes",
+        "Technical discussions about missile trajectories and defense interception",
+        "Geopolitical implications of targeting major Israeli economic center"
+      ],
+      "key_quotes": [
+        "good go iran more more Gulf Tel Aviv & Haifa Jerusalam do Iran",
+        "'Direct Hit?' Iran Strike Damages Tel Aviv Train Station, Services Halted",
+        "Iran Rains Missiles on Tel Aviv, Holon After Larijani Killing"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "AIPAC",
+      "type": "organization",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 4,
+      "sentiment": "negative",
+      "why_talking": "Accusations of AIPAC's role in promoting false WMD claims about Iraq",
+      "what_saying": [
+        "Accusations that AIPAC paid officials to make false claims about Iraqi WMDs",
+        "Criticism of lobby influence on US foreign policy decisions",
+        "Questions about current influence on Iran policy decisions",
+        "Skepticism about media figures' potential AIPAC connections"
+      ],
+      "key_quotes": [
+        "You forgot to mention AIPAC paid people to say Iraq has weapons of mass destruction",
+        "Are you taking contributions form AIPAC ?"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Chamath Palihapitiya",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 4,
+      "sentiment": "positive",
+      "why_talking": "Comments about autism and productivity on Nikhil Kamath's podcast",
+      "what_saying": [
+        "Positive reception for his straightforward, unfiltered commentary style",
+        "Appreciation for his views on autism and productivity without sugar-coating",
+        "Praise for his stance against charity and acknowledgment of arrogance in successful people",
+        "Recognition as engaging podcast guest with authentic perspectives"
+      ],
+      "key_quotes": [
+        "He's my favourite so far, the way he despises charity and acknowledges that arrogant people do make dent",
+        "He's the coolest guest ever for me"
+      ],
+      "tier1_mentions": true,
+      "tier2_mentions": false
+    },
+    {
+      "name": "Ukraine",
+      "type": "other",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 4,
+      "sentiment": "mixed",
+      "why_talking": "Zelenskyy offering to help stop Iranian drones amid ongoing Russia conflict",
+      "what_saying": [
+        "Offering drone expertise to help counter Iranian drones in Middle East",
+        "Criticism for helping other conflicts while own war with Russia continues",
+        "Some appreciation for professional military assistance offer",
+        "Questions about priorities given ongoing Russian military operations"
+      ],
+      "key_quotes": [
+        "This man is joking right?",
+        "Awesome thankyou Ukraine for sending your professional guys",
+        "First take care of your own war with Russia then help other countries \ud83d\ude02\ud83d\ude02"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Ali Larijani",
+      "type": "person",
+      "ticker": null,
+      "parent": "Iran",
+      "mention_count": 4,
+      "sentiment": "mixed",
+      "why_talking": "Iranian security chief killed in Israeli strike, funeral held in Tehran",
+      "what_saying": [
+        "Death in Israeli strike marking escalation of Iran-Israel conflict",
+        "Thousands attending funeral according to Iranian state media",
+        "Questions about accuracy of attendance figures and state media claims",
+        "Symbol of broader targeting of Iranian leadership by Israel"
+      ],
+      "key_quotes": [
+        "How many top IRGC/regime is that now?",
+        "Free free Iran",
+        "Why does BiBi separate families. Please send his brothers to him soon"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "John Thune",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 4,
+      "sentiment": "negative",
+      "why_talking": "Senate Majority Leader threatening Democrats over Save America Act while facing GOP criticism",
+      "what_saying": [
+        "Criticized for threatening wrong people - should target Republican holdouts instead",
+        "Called 'CREEP' and 'disgraceful traitor' by conservative commenters",
+        "Accused of being installed by Mitch McConnell and protecting RINO Republicans",
+        "Viewed as weak leader unable to pass popular legislation"
+      ],
+      "key_quotes": [
+        "John Thune should be threatening Mitch McConnell Lisa murkowski and any other Republican",
+        "Get this CREEP Thunes out of your government period",
+        "Thune is a disgraceful traitor, a modern day Benedict Arnold"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Micron Technology",
+      "type": "company",
+      "ticker": "MU",
+      "parent": null,
+      "mention_count": 4,
+      "sentiment": "positive",
+      "why_talking": "Announced heavy capital expenditure spending to meet AI memory demand",
+      "what_saying": [
+        "Planning massive CAPEX to maintain market share in AI memory super-cycle",
+        "Strong demand for high-bandwidth memory driving expansion plans",
+        "Competition is intensifying in AI memory marketplace",
+        "Long-term investment strategy reflects confidence in AI growth"
+      ],
+      "key_quotes": [
+        "Micron to Spend Heavily to Meet Demand",
+        "The massive CAPEX reflects management's belief that the AI memory super-cycle will continue",
+        "What must be done for $MU to maintain (and even increase) their market share"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Joseph Vijay",
+      "type": "person",
+      "ticker": null,
+      "parent": "TVK",
+      "mention_count": 4,
+      "sentiment": "mixed",
+      "why_talking": "Rejecting alliance talks with NDA and launching independent political party TVK",
+      "what_saying": [
+        "Praised for rejecting communal forces and standing against fascist BJP",
+        "Criticized as being controlled by Christian conversion missionaries",
+        "Accusations of being anti-Hindu and divisive communal force himself",
+        "Debate over his nationalist credentials versus his political positions"
+      ],
+      "key_quotes": [
+        "Thalapathy for a reason!! Well said Vijay. Iam not a fan of Dmk but it's million times better than fascist Bjp",
+        "TVK is the communal force since it is strongly believed that TVK is being controlled by. Christian Religious Conversion Missionaries"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "South Pars",
+      "type": "facility",
+      "ticker": null,
+      "parent": "Iran",
+      "mention_count": 3,
+      "sentiment": "negative",
+      "why_talking": "Israeli strike on Iran's major gas field causing global energy concerns",
+      "what_saying": [
+        "Critical energy infrastructure targeted in escalating conflict",
+        "Global gas supply disruption fears following the attack",
+        "Indian concerns about energy security and supply chain impact",
+        "Questioning the strategic necessity of targeting civilian energy infrastructure"
+      ],
+      "key_quotes": [
+        "Why did Israel attack South Pars gas field in Iran ? As an Indian I am livid with unnecessary escalation",
+        "South Pars Blaze Caught On Cam: Israel Strike Hits Iran Gas Hub"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Hormuz Strait",
+      "type": "location",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 3,
+      "sentiment": "negative",
+      "why_talking": "Critical shipping route threatened by Middle East conflict escalation",
+      "what_saying": [
+        "NATO discussions about reopening critical oil shipping route",
+        "China and India still navigating the strait despite tensions",
+        "US backup plans being prepared for potential closure",
+        "Global energy supply chain vulnerability highlighted"
+      ],
+      "key_quotes": [
+        "NATO Chief Mark Rutte Leads Talks To Reopen Hormuz",
+        "Tankers Still Moving: Tulsi Gabbard Says China, India Navigate Hormuz"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Hezbollah",
+      "type": "organization",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 3,
+      "sentiment": "negative",
+      "why_talking": "Israeli military operations targeting the organization in Lebanon",
+      "what_saying": [
+        "Israeli operations destroying Hezbollah infrastructure in Beirut",
+        "Support for complete eradication of the organization",
+        "References to October 7th attacks in justification of actions",
+        "Calls for elimination without compassion or hesitation"
+      ],
+      "key_quotes": [
+        "I request IDF to devastate the total Beiruit and eradicate HISABULLAH terrorism completely without any compassion",
+        "dancing on 7th October.. now crying\ud83e\udd23\ud83e\udd23"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Audi",
+      "type": "company",
+      "ticker": null,
+      "parent": "Volkswagen Group",
+      "mention_count": 3,
+      "sentiment": "positive",
+      "why_talking": "Supply chain resilience and localization strategy amid global conflicts",
+      "what_saying": [
+        "No war impact reported on supply chain operations",
+        "Continuing localization push in Indian market",
+        "Celebrity endorsement from Ravi Shastri for SQ8 model",
+        "Maintaining operations despite global uncertainties"
+      ],
+      "key_quotes": [
+        "Audi India Sees No War Impact On Supply Chain | Localisation Push Continues",
+        "Ravi Shastri On His Love For Audi Cars At The Launch Of SQ8"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "J.D. Vance",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 3,
+      "sentiment": "mixed",
+      "why_talking": "Vice President commenting on energy prices during Iran war",
+      "what_saying": [
+        "Attempting to reassure public about energy price volatility during war",
+        "Mixed reception of his economic messaging and competence",
+        "Criticism of administration's handling of war and energy policy",
+        "Questions about his influence and effectiveness as VP"
+      ],
+      "key_quotes": [
+        "Energy prices will 'come back down to reality' after Iran war",
+        "Whenever he speaks, it just makes things worse"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "HSBC",
+      "type": "company",
+      "ticker": "HSBC",
+      "parent": null,
+      "mention_count": 3,
+      "sentiment": "negative",
+      "why_talking": "Planning job cuts as part of multiyear AI-driven operational overhaul",
+      "what_saying": [
+        "Implementing AI-fueled restructuring that will eliminate positions",
+        "Part of broader banking industry trend toward automation",
+        "White-collar jobs particularly at risk from AI replacement",
+        "Multiyear transformation plan affecting employment levels"
+      ],
+      "key_quotes": [
+        "HSBC Weighs Job Cuts From Multiyear AI-Fueled Overhaul",
+        "Please save white collar jobs \ud83d\ude2d\ud83d\ude2d"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Howard Marks",
+      "type": "person",
+      "ticker": null,
+      "parent": "Oaktree Capital",
+      "mention_count": 3,
+      "sentiment": "positive",
+      "why_talking": "Oaktree co-founder discussing AI investment strategies and market unpredictability",
+      "what_saying": [
+        "Providing insights on AI investing and market cycles",
+        "Praised for balanced perspective combining humor and humility",
+        "Discussing framework for navigating AI investment bubble concerns",
+        "Veteran investor approach to market volatility and human nature"
+      ],
+      "key_quotes": [
+        "Howard is simply the best ! Great interview - super insightful",
+        "Outstanding discussion and perspectives",
+        "Veteran investors are so chill like yeah it can collapse so what, it will come back"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Nita Ambani",
+      "type": "person",
+      "ticker": "RIL",
+      "parent": "Reliance Industries",
+      "mention_count": 3,
+      "sentiment": "mixed",
+      "why_talking": "Receiving honorary doctorate for social impact work",
+      "what_saying": [
+        "Recognition for social impact initiatives and philanthropic work",
+        "Criticism for high Jio recharge prices while spending on son's expensive wedding",
+        "Questions about priorities between social causes and lavish family celebrations",
+        "Mixed reactions to award and social contributions"
+      ],
+      "key_quotes": [
+        "Please bring down Jio recharge plan less... All poor money you used for your son Marriage",
+        "Brilliant Nitaji \ud83d\udc4c\ud83d\ude4f"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Volodymyr Zelenskyy",
+      "type": "person",
+      "ticker": null,
+      "parent": "Ukraine",
+      "mention_count": 2,
+      "sentiment": "mixed",
+      "why_talking": "UK visit offering Ukrainian help to stop Iranian drones",
+      "what_saying": [
+        "Proposing Ukrainian expertise to counter Iranian drone threats",
+        "Mixed reception - some see as helpful, others as misplaced priorities",
+        "Questions about focusing on other conflicts while Russia war continues",
+        "Recognition of Ukrainian military capabilities and expertise"
+      ],
+      "key_quotes": [
+        "This man is joking right?",
+        "These clown \ud83e\udd21 just implicated these countries he mentioned",
+        "Awesome thankyou Ukraine for sending your professional guys"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Atanu Chakraborty",
+      "type": "person",
+      "ticker": null,
+      "parent": "HDFC Bank",
+      "mention_count": 2,
+      "sentiment": "mixed",
+      "why_talking": "Resignation as HDFC Bank Chairman citing ethical concerns",
+      "what_saying": [
+        "Resignation over unspecified ethical concerns raises questions",
+        "Speculation about ego problems and vague exit statements",
+        "Political motivations suggested behind departure",
+        "Impact on broader banking sector confidence questioned"
+      ],
+      "key_quotes": [
+        "Atanu Chakraborty Resigns| Could HDFC Bank Issue Impact Broader Banking Sector Outlook?",
+        "Idiot may have some ego problems. Resigned with some vague comments"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Brent Crude",
+      "type": "commodity",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 2,
+      "sentiment": "neutral",
+      "why_talking": "Oil price surge due to Middle East conflict and energy supply concerns",
+      "what_saying": [
+        "Potential surge to $150 per barrel being discussed by analysts",
+        "Federal Reserve flagging oil price impact on inflation",
+        "War risks driving energy market volatility",
+        "Global economic impact from sustained high oil prices"
+      ],
+      "key_quotes": [
+        "Will Brent Crude Surge To $150? Here's What Sugandha Sachdeva Says"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Datavault AI",
+      "type": "company",
+      "ticker": "DVLT",
+      "parent": null,
+      "mention_count": 2,
+      "sentiment": "positive",
+      "why_talking": "Stock surging 19% ahead of Q4 earnings call with AI tokenization plans",
+      "what_saying": [
+        "Share price up 19% Wednesday before Thursday earnings",
+        "Plans for tokenization of global assets and information",
+        "85 institutional investors holding over 36 million shares",
+        "Global partnerships increasing with major universities"
+      ],
+      "key_quotes": [
+        "DVLT Datavault AI soaring 19 % Wed ahead of Q4 earnings call Thursday Pre-market",
+        "Tokenization of Global Assets and Information Plans"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Rezolve AI",
+      "type": "company",
+      "ticker": "RZLV",
+      "parent": null,
+      "mention_count": 2,
+      "sentiment": "positive",
+      "why_talking": "AI stock climbing with strong monthly performance amid sector interest",
+      "what_saying": [
+        "Stock up 21% for the month in AI sector rally",
+        "Part of broader AI stock momentum",
+        "Trading alongside other AI-focused companies",
+        "Benefiting from increased AI investment interest"
+      ],
+      "key_quotes": [
+        "RZLV AI Rezolve AI climbed 16",
+        "RZLV AI Rezolve AI up 21 % month"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Dan Goldman",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 2,
+      "sentiment": "positive",
+      "why_talking": "Dropping unredacted Epstein files in Congress related to Trump allegations",
+      "what_saying": [
+        "Releasing unredacted Epstein files in Congress implicating Trump",
+        "Receiving thanks from supporters for pursuing Trump accountability",
+        "Part of broader Democratic effort to expose Trump connections to Epstein",
+        "Leading congressional investigation into potential Trump criminal activity"
+      ],
+      "key_quotes": [
+        "Thank you, Rep. Goldman. Impeach and imprison Trump."
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Aramco",
+      "type": "company",
+      "ticker": "2222",
+      "parent": "Saudi Arabia",
+      "mention_count": 2,
+      "sentiment": "neutral",
+      "why_talking": "Facility hit by Iranian missile attack causing explosions in Saudi Arabia",
+      "what_saying": [
+        "Major oil facility targeted by Iranian attack with explosions reported",
+        "Strike represents escalation in Iran's targeting of Gulf energy infrastructure",
+        "Attack on critical global energy asset amid rising oil prices",
+        "Part of Iranian campaign to pressure Gulf states supporting Israel"
+      ],
+      "key_quotes": [
+        "What a missile hit \ud83d\ude05\ud83d\ude05\ud83d\ude05"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "MacBook Neo",
+      "type": "product",
+      "ticker": null,
+      "parent": "Apple",
+      "mention_count": 1,
+      "sentiment": "neutral",
+      "why_talking": "Product unboxing content",
+      "what_saying": [
+        "New Apple product being featured in unboxing content",
+        "Technology content amid broader financial and geopolitical news",
+        "Consumer electronics coverage alongside market updates",
+        "Product launch coverage in business media"
+      ],
+      "key_quotes": [
+        "MacBook Neo Unboxing"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Lionel Messi",
+      "type": "person",
+      "ticker": null,
+      "parent": "Inter Miami",
+      "mention_count": 1,
+      "sentiment": "positive",
+      "why_talking": "Historic milestone of 900 career goals achieved",
+      "what_saying": [
+        "Reached historic 900 career goals milestone",
+        "Achievement occurred despite team Miami's tournament exit",
+        "Sports news coverage alongside business and political content",
+        "Career milestone recognition in football"
+      ],
+      "key_quotes": [
+        "Lionel Messi Reaches 900 Career Goals In Historic Night Despite Team Miami's Exit"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Josh D'Amaro",
+      "type": "person",
+      "ticker": null,
+      "parent": "Disney",
+      "mention_count": 1,
+      "sentiment": "neutral",
+      "why_talking": "Officially became new CEO of Disney, major corporate leadership change",
+      "what_saying": [
+        "New Disney CEO appointment amid company's ongoing strategic and financial challenges",
+        "Corporate leadership transition at major entertainment conglomerate",
+        "Comments focus more on Disney's stock performance than D'Amaro specifically",
+        "Minimal discussion of his qualifications or strategic vision"
+      ],
+      "key_quotes": [
+        "Josh D'Amaro has officially become the new CEO of Disney"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Disney",
+      "type": "company",
+      "ticker": "DIS",
+      "parent": null,
+      "mention_count": 1,
+      "sentiment": "neutral",
+      "why_talking": "New CEO Josh D'Amaro appointment and questions about stock performance versus revenue growth",
+      "what_saying": [
+        "CEO transition with Josh D'Amaro taking leadership role at entertainment giant",
+        "Investor concerns about stock dilution despite reported revenue doubling",
+        "Questions raised about outstanding shares impacting investor returns",
+        "Focus on corporate governance and shareholder value during leadership change"
+      ],
+      "key_quotes": [
+        "So if the revenue is doubled and the stock price is the same there must be more outstanding shares diluting investors?"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Marco Rubio",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 1,
+      "sentiment": "neutral",
+      "why_talking": "Drones detected near his residence putting US officials on high alert",
+      "what_saying": [
+        "Residence targeted by drone surveillance along with other US officials",
+        "Part of broader security concerns for incoming administration officials",
+        "Indicates potential Iranian intelligence or intimidation operations",
+        "Heightened security alert for key Trump administration nominees"
+      ],
+      "key_quotes": [
+        "You americans just show a drone your pants got wet"
+      ],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    },
+    {
+      "name": "Maggie Hassan",
+      "type": "person",
+      "ticker": null,
+      "parent": null,
+      "mention_count": 1,
+      "sentiment": "neutral",
+      "why_talking": "Pressing DHS nominee Mullin on rule of law and ICE policing during confirmation hearings",
+      "what_saying": [
+        "Questioning DHS nominee on immigration enforcement policies",
+        "Focus on rule of law implementation under Trump administration",
+        "Senate confirmation process for key homeland security position",
+        "ICE policing policies under scrutiny during hearings"
+      ],
+      "key_quotes": [],
+      "tier2_mentions": true,
+      "tier1_mentions": false
+    }
+  ]
+}

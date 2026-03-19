@@ -1,6 +1,7 @@
 import os
 import json
 import sqlite3
+import sys
 import time
 from datetime import datetime, timezone
 
@@ -160,9 +161,25 @@ def merge_entities(lists):
                     if q not in seen and len(ex["key_quotes"]) < 5:
                         ex["key_quotes"].append(q)
                         seen.add(q)
-                # Extend what_saying if different content
-                if entity.get("what_saying") and entity["what_saying"] not in ex.get("what_saying", ""):
-                    ex["what_saying"] = (ex.get("what_saying", "") + " " + entity["what_saying"]).strip()
+                # Extend what_saying if different content (handle both list and str)
+                new_what = entity.get("what_saying")
+                if new_what:
+                    ex_what = ex.get("what_saying", [])
+                    if isinstance(ex_what, list) and isinstance(new_what, list):
+                        seen_bullets = set(ex_what)
+                        for b in new_what:
+                            if b not in seen_bullets:
+                                ex_what.append(b)
+                                seen_bullets.add(b)
+                        ex["what_saying"] = ex_what
+                    elif isinstance(ex_what, str) and isinstance(new_what, str):
+                        if new_what not in ex_what:
+                            ex["what_saying"] = (ex_what + " " + new_what).strip()
+                    else:
+                        # Normalize both to list
+                        combined = (ex_what if isinstance(ex_what, list) else [ex_what]) + \
+                                   (new_what if isinstance(new_what, list) else [new_what])
+                        ex["what_saying"] = list(dict.fromkeys(combined))
             else:
                 merged[key] = dict(entity)
                 if "key_quotes" not in merged[key]:
@@ -203,43 +220,91 @@ def deduplicate_entities(entities):
     return sorted(canonical.values(), key=lambda x: x.get("mention_count", 0), reverse=True)
 
 
-def run_extraction(client, data):
-    """Run entity extraction, splitting into passes if data is large."""
-    prompt = build_prompt(data)
+def run_extraction_for_tier(client, data, tier_label):
+    """Run entity extraction for a single tier's data, return list of entities."""
     CHAR_LIMIT = 80_000  # ~20k tokens
+    prompt = build_prompt(data)
 
     if len(prompt) <= CHAR_LIMIT:
-        print("  Single-pass extraction...")
+        print(f"  [{tier_label}] Single-pass extraction...")
         raw = call_llm(client, prompt)
-        parsed = json.loads(extract_json(raw))
-        return parsed.get("entities", [])
+        try:
+            parsed = json.loads(extract_json(raw))
+            return parsed.get("entities", [])
+        except json.JSONDecodeError as e:
+            print(f"  [{tier_label}] JSON parse error: {e}")
+            return []
 
-    # Split into chunks of ~30 videos each
     chunk_size = 30
     chunks = [data[i:i+chunk_size] for i in range(0, len(data), chunk_size)]
-    print(f"  Large dataset — {len(chunks)} passes needed...")
+    print(f"  [{tier_label}] Large dataset — {len(chunks)} passes needed...")
 
     all_entities = []
     for i, chunk in enumerate(chunks):
-        print(f"  Pass {i+1}/{len(chunks)}...")
+        print(f"  [{tier_label}] Pass {i+1}/{len(chunks)}...")
         chunk_prompt = build_prompt(chunk)
         raw = call_llm(client, chunk_prompt)
         try:
             parsed = json.loads(extract_json(raw))
             all_entities.append(parsed.get("entities", []))
         except json.JSONDecodeError as e:
-            print(f"  JSON parse error on pass {i+1}: {e} — skipping chunk")
+            print(f"  [{tier_label}] JSON parse error on pass {i+1}: {e} — skipping chunk")
 
         if i < len(chunks) - 1:
             print(f"  Waiting 65s before next pass...")
             time.sleep(65)
 
-    print(f"  Merging {len(all_entities)} passes...")
-    merged = merge_entities(all_entities)
-    before = len(merged)
-    merged = deduplicate_entities(merged)
-    print(f"  Deduplication: {before} → {len(merged)} entities")
-    return merged
+    return merge_entities(all_entities)
+
+
+def run_extraction(client, data):
+    """Run entity extraction by tier so each entity is tagged with its source tier."""
+    tier1 = [v for v in data if v["source_tier"] == "tier1"]
+    tier2 = [v for v in data if v["source_tier"] == "tier2"]
+
+    print(f"  Tier 1: {len(tier1)} videos | Tier 2: {len(tier2)} videos")
+
+    # Extract Tier 1
+    t1_entities = run_extraction_for_tier(client, tier1, "Tier 1") if tier1 else []
+    for e in t1_entities:
+        e["tier1_mentions"] = True
+        e.setdefault("tier2_mentions", False)
+
+    # Wait between tiers to avoid rate limits
+    if tier1 and tier2:
+        print("  Waiting 65s before Tier 2...")
+        time.sleep(65)
+
+    # Extract Tier 2
+    t2_entities = run_extraction_for_tier(client, tier2, "Tier 2") if tier2 else []
+    for e in t2_entities:
+        e["tier2_mentions"] = True
+        e.setdefault("tier1_mentions", False)
+
+    # Merge across tiers — preserve tier flags during merge
+    print(f"  Merging Tier 1 ({len(t1_entities)}) + Tier 2 ({len(t2_entities)}) entities...")
+    merged = {}
+    for entity in t1_entities + t2_entities:
+        key = entity["name"].lower().strip()
+        if key in merged:
+            ex = merged[key]
+            ex["mention_count"] = ex.get("mention_count", 0) + entity.get("mention_count", 0)
+            if entity.get("tier1_mentions"):
+                ex["tier1_mentions"] = True
+            if entity.get("tier2_mentions"):
+                ex["tier2_mentions"] = True
+            seen_q = set(ex.get("key_quotes", []))
+            for q in entity.get("key_quotes", []):
+                if q not in seen_q and len(ex.get("key_quotes", [])) < 5:
+                    ex.setdefault("key_quotes", []).append(q)
+                    seen_q.add(q)
+        else:
+            merged[key] = dict(entity)
+            merged[key].setdefault("key_quotes", [])
+
+    result = sorted(merged.values(), key=lambda x: x.get("mention_count", 0), reverse=True)
+    print(f"  Total unique entities: {len(result)}")
+    return result
 
 
 def save_report(today_str, entities):
@@ -262,7 +327,7 @@ def main():
     if not api_key:
         raise ValueError("ANTHROPIC_API_KEY not set")
 
-    today_str = datetime.now(timezone.utc).date().isoformat()
+    today_str = sys.argv[1] if len(sys.argv) > 1 else datetime.now(timezone.utc).date().isoformat()
     print(f"=== MarketPulse — Entity Extraction ({today_str}) ===")
 
     conn = sqlite3.connect(DB_PATH)

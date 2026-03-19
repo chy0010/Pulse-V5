@@ -63,7 +63,14 @@ def type_label(t):
 def generate_html(report):
     today_str = report["date"]
     entity_count = report["entity_count"]
-    entities = report["entities"]
+
+    # Tier 1 only + Both tiers first (sorted by mentions), then Tier 2 only
+    def tier_priority(e):
+        t1 = e.get("tier1_mentions", False)
+        t2 = e.get("tier2_mentions", False)
+        return 1 if (not t1 and t2) else 0  # Tier 2 only = group 1, everything else = group 0
+
+    entities = sorted(report["entities"], key=lambda e: (tier_priority(e), -e.get("mention_count", 0)))
 
     try:
         dt = datetime.strptime(today_str, "%Y-%m-%d")
@@ -96,7 +103,6 @@ def generate_html(report):
             what_bullets = []
             what = escape_html(raw_what)
 
-        s_color = sentiment_color(sentiment)
         type_lbl = type_label(etype)
         ticker_html = f'<span class="ticker">{escape_html(ticker)}</span>' if ticker else ""
         t1_badge = '<span class="tier-badge t1">Tier 1</span>' if t1 else ""
@@ -106,7 +112,39 @@ def generate_html(report):
         for q in quotes[:3]:
             quotes_html += f'<div class="quote">&ldquo;{escape_html(q)}&rdquo;</div>\n'
 
-        return f"""<div class="entity-card" data-type="{etype}" data-sentiment="{sentiment}" data-name="{name.lower()}" data-why="{why.lower()}" data-what="{what.lower()}">
+        # Build collapsible sections outside f-string to avoid backslash issues
+        what_label = "What they're saying"
+        chevron = '<span class="chevron">&#9660;</span>'
+        if what_bullets:
+            bullets_inner = "".join(f"<li>{escape_html(b)}</li>" for b in what_bullets)
+            what_section = (
+                f'<details class="collapsible">'
+                f'<summary class="section-label collapsible-label">{what_label} {chevron}</summary>'
+                f'<div class="collapsible-body"><ul class="what-bullets">{bullets_inner}</ul></div>'
+                f'</details>'
+            )
+        elif what:
+            what_section = (
+                f'<details class="collapsible">'
+                f'<summary class="section-label collapsible-label">{what_label} {chevron}</summary>'
+                f'<div class="collapsible-body"><p class="what-text">{what}</p></div>'
+                f'</details>'
+            )
+        else:
+            what_section = ""
+
+        if quotes:
+            critiques_section = (
+                f'<details class="collapsible">'
+                f'<summary class="section-label collapsible-label">Critiques {chevron}</summary>'
+                f'<div class="collapsible-body quotes-block">{quotes_html}</div>'
+                f'</details>'
+            )
+        else:
+            critiques_section = ""
+
+        tier_attr = ("tier1" if t1 and not t2 else "tier2" if t2 and not t1 else "both")
+        return f"""<div class="entity-card" data-type="{etype}" data-sentiment="{sentiment}" data-name="{name.lower()}" data-why="{why.lower()}" data-what="{what.lower()}" data-tier="{tier_attr}">
   <div class="card-header">
     <div class="card-title-row">
       <span class="entity-name">{name}</span>
@@ -115,17 +153,14 @@ def generate_html(report):
     </div>
     <div class="card-meta-row">
       <span class="mention-count"><strong>{mentions}</strong> mentions</span>
-      <span class="sentiment-dot" style="background:{s_color};"></span>
-      <span class="sentiment-label" style="color:{s_color};">{sentiment.capitalize()}</span>
       {t1_badge}{t2_badge}
     </div>
   </div>
   <div class="card-body">
     <div class="section-label">Why they're talking about it</div>
     <p class="why-text">{why}</p>
-    <div class="section-label">What they're saying</div>
-    {'<ul class="what-bullets">' + ''.join(f'<li>{escape_html(b)}</li>' for b in what_bullets) + '</ul>' if what_bullets else f'<p class="what-text">{what}</p>'}
-    {f'<div class="section-label">Key quotes</div><div class="quotes-block">{quotes_html}</div>' if quotes else ''}
+    {what_section}
+    {critiques_section}
   </div>
 </div>"""
 
@@ -566,6 +601,35 @@ def generate_html(report):
 
     .section-label:first-child {{ margin-top: 0; }}
 
+    .collapsible {{
+      border: none;
+      margin-top: 0.9rem;
+    }}
+
+    .collapsible-label {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      margin-top: 0;
+      user-select: none;
+      list-style: none;
+    }}
+
+    .collapsible-label::-webkit-details-marker {{ display: none; }}
+
+    .chevron {{
+      font-size: 0.7rem;
+      color: var(--muted);
+      transition: transform 0.2s;
+    }}
+
+    details[open] .chevron {{ transform: rotate(180deg); }}
+
+    .collapsible-body {{
+      margin-top: 0.4rem;
+    }}
+
     .what-bullets {{
       margin: 0;
       padding-left: 1.1rem;
@@ -693,13 +757,11 @@ def generate_html(report):
       <button class="filter-btn" data-filter="person">People</button>
       <button class="filter-btn" data-filter="platform">Platforms</button>
     </div>
-    <select class="sentiment-filter" id="sentimentFilter">
-      <option value="all">All Sentiment</option>
-      <option value="positive">Positive</option>
-      <option value="negative">Negative</option>
-      <option value="mixed">Mixed</option>
-      <option value="neutral">Neutral</option>
-    </select>
+    <div class="filter-group">
+      <button class="filter-btn active tier-filter" data-tier="all">All Tiers</button>
+      <button class="filter-btn tier-filter" data-tier="tier1">Tier 1 Only</button>
+      <button class="filter-btn tier-filter" data-tier="tier2">Tier 2 Only</button>
+    </div>
     <span class="results-count" id="resultsCount">{entity_count:,} entities</span>
   </div>
 
@@ -718,18 +780,6 @@ def generate_html(report):
         <div class="big">{len(technologies)}</div>
         <div class="lbl">Technologies</div>
       </div>
-      <div class="summary-card">
-        <div class="big green">{len([e for e in entities if e.get("sentiment") == "positive"])}</div>
-        <div class="lbl">Positive Sentiment</div>
-      </div>
-      <div class="summary-card">
-        <div class="big red">{len([e for e in entities if e.get("sentiment") == "negative"])}</div>
-        <div class="lbl">Negative Sentiment</div>
-      </div>
-      <div class="summary-card">
-        <div class="big gold">{len([e for e in entities if e.get("sentiment") == "mixed"])}</div>
-        <div class="lbl">Mixed Sentiment</div>
-      </div>
     </div>
 
     <div class="card-grid" id="cardGrid">
@@ -747,7 +797,7 @@ def generate_html(report):
 
   <script>
     let currentType = 'all';
-    let currentSentiment = 'all';
+    let currentTier = 'all';
     let searchTerm = '';
 
     const cards = document.querySelectorAll('.entity-card');
@@ -759,16 +809,18 @@ def generate_html(report):
 
       cards.forEach(card => {{
         const type = card.dataset.type;
-        const sentiment = card.dataset.sentiment;
+        const tier = card.dataset.tier || 'both';
         const name = card.dataset.name || '';
         const why = card.dataset.why || '';
         const what = card.dataset.what || '';
 
         const typeOk = currentType === 'all' || type === currentType;
-        const sentimentOk = currentSentiment === 'all' || sentiment === currentSentiment;
+        const tierOk = currentTier === 'all' ||
+                       (currentTier === 'tier1' && (tier === 'tier1' || tier === 'both')) ||
+                       (currentTier === 'tier2' && (tier === 'tier2' || tier === 'both'));
         const searchOk = !searchTerm || name.includes(searchTerm) || why.includes(searchTerm) || what.includes(searchTerm);
 
-        if (typeOk && sentimentOk && searchOk) {{
+        if (typeOk && tierOk && searchOk) {{
           card.classList.remove('hidden');
           visible++;
         }} else {{
@@ -785,19 +837,24 @@ def generate_html(report):
       applyFilters();
     }});
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {{
+    document.querySelectorAll('.filter-btn:not(.tier-filter)').forEach(btn => {{
       btn.addEventListener('click', () => {{
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn:not(.tier-filter)').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentType = btn.dataset.filter;
         applyFilters();
       }});
     }});
 
-    document.getElementById('sentimentFilter').addEventListener('change', e => {{
-      currentSentiment = e.target.value;
-      applyFilters();
+    document.querySelectorAll('.tier-filter').forEach(btn => {{
+      btn.addEventListener('click', () => {{
+        document.querySelectorAll('.tier-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTier = btn.dataset.tier;
+        applyFilters();
+      }});
     }});
+
 
     const btn = document.getElementById('backTop');
     window.addEventListener('scroll', () => {{
