@@ -38,7 +38,8 @@ TIER2_HANDLES = [
 
 TIER1_COMMENTS = 40
 TIER2_COMMENTS = 20
-LOOKBACK_HOURS = 24
+TIER1_LOOKBACK_HOURS = 48
+TIER2_LOOKBACK_HOURS = 24
 REPLY_THRESHOLD = 3
 MAX_REPLIES = 10
 API_DELAY = 0.2
@@ -234,7 +235,8 @@ def insert_comments(conn, video_id, comments):
 
 def process_channel(youtube, conn, handle, tier, cache):
     max_comments = TIER1_COMMENTS if tier == "tier1" else TIER2_COMMENTS
-    cutoff_dt = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
+    lookback = TIER1_LOOKBACK_HOURS if tier == "tier1" else TIER2_LOOKBACK_HOURS
+    cutoff_dt = datetime.now(timezone.utc) - timedelta(hours=lookback)
 
     print(f"\n[{tier}] {handle}")
 
@@ -243,7 +245,7 @@ def process_channel(youtube, conn, handle, tier, cache):
         return
 
     videos = get_recent_videos(youtube, info["uploads_playlist_id"], cutoff_dt)
-    print(f"  {len(videos)} new video(s) in last {LOOKBACK_HOURS}h")
+    print(f"  {len(videos)} new video(s) in last {lookback}h")
 
     for video in videos:
         vid = video["video_id"]
@@ -279,7 +281,7 @@ def main():
     cache = load_cache()
 
     print("=== MarketPulse v5 — YouTube Ingestion ===")
-    print(f"Lookback: {LOOKBACK_HOURS}h | Tier1: {TIER1_COMMENTS} comments | Tier2: {TIER2_COMMENTS} comments")
+    print(f"Lookback: Tier1={TIER1_LOOKBACK_HOURS}h Tier2={TIER2_LOOKBACK_HOURS}h | Tier1: {TIER1_COMMENTS} comments | Tier2: {TIER2_COMMENTS} comments")
 
     for handle in TIER1_HANDLES:
         process_channel(youtube, conn, handle, "tier1", cache)

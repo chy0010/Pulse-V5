@@ -7,12 +7,39 @@ from datetime import datetime, timezone
 
 from dotenv import load_dotenv
 import anthropic
+from ticker_map import resolve_ticker, get_affected_tickers, get_investor_tickers
 
 load_dotenv()
 
 DB_PATH = "marketpulse_v5.db"
 REPORTS_DIR = "reports"
 MODEL = "claude-sonnet-4-20250514"
+
+# Names of channel hosts / podcasters — exclude from entity output
+CHANNEL_HOSTS = {
+    "marques brownlee", "mkbhd",
+    "nikhil kamath",
+    "tom bilyeu",
+    "dwarkesh patel",
+    "jeff su",
+    "aaron jack",
+    "ray dalio",
+    "tina huang",
+    "johnny harris",
+    "steven bartlett",
+    "andrew ng",
+    "patrick boyle",
+    "peter diamandis",
+    "simon clark",
+    "rob mulla",
+    "varun mayya",
+    "aarav narula",
+    "harkirat singh",
+    "ivy fung",
+    "alex lee",
+    "martin zeman",
+    "lei",
+}
 MAX_TOKENS = 8000
 MAX_COMMENT_CHARS = 300
 MAX_COMMENTS_PER_VIDEO = 40
@@ -40,10 +67,10 @@ Return ONLY valid JSON, absolutely no text outside the JSON object. Structure:
       "ticker": "TICKER or null",
       "parent": "Parent company if applicable, else null",
       "mention_count": 0,
-      "sentiment": "positive|negative|mixed|neutral",
       "why_talking": "What specifically triggered this discussion right now",
       "what_saying": ["Bullet point 1", "Bullet point 2", "Bullet point 3", "Bullet point 4"],
-      "key_quotes": ["verbatim quote from comment", "another verbatim quote", "third verbatim quote"]
+      "key_quotes": ["verbatim quote from comment", "another verbatim quote", "third verbatim quote"],
+      "sentiment": "bullish|bearish|mixed|neutral"
     }
   ]
 }
@@ -307,8 +334,43 @@ def run_extraction(client, data):
     return result
 
 
+def enrich_tickers(entities):
+    """Resolve tickers and add affected_tickers / investor_tickers fields."""
+    ticker_resolved = 0
+    for e in entities:
+        name = e.get("name", "")
+        etype = e.get("type", "")
+        llm_ticker = e.get("ticker")
+
+        # Resolve best ticker
+        resolved = resolve_ticker(name, llm_ticker)
+        e["ticker"] = resolved
+        if resolved:
+            ticker_resolved += 1
+
+        # For geo/political entities, add affected tickers
+        if etype in ("person", "event", "policy", "other") or not resolved:
+            affected = get_affected_tickers(name)
+            if affected:
+                e["affected_tickers"] = affected
+
+        # For private AI/tech companies with no ticker, add investor tickers
+        if not resolved:
+            investors = get_investor_tickers(name)
+            if investors:
+                e["investor_tickers"] = investors
+
+    print(f"  Ticker resolution: {ticker_resolved}/{len(entities)} entities have tickers")
+    return entities
+
+
 def save_report(today_str, entities):
     os.makedirs(REPORTS_DIR, exist_ok=True)
+    before = len(entities)
+    entities = [e for e in entities if e.get("name", "").lower().strip() not in CHANNEL_HOSTS]
+    if before != len(entities):
+        print(f"  Filtered out {before - len(entities)} channel host(s)")
+    entities = enrich_tickers(entities)
     path = os.path.join(REPORTS_DIR, f"{today_str}_companies.json")
     payload = {
         "date": today_str,
