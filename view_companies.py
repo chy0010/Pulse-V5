@@ -518,10 +518,21 @@ def generate_html(reports):
         t2 = e.get("tier2_mentions", False)
         return 1 if (not t1 and t2) else 0
 
+    price_data = load_price_data()
+
+    def has_price(e):
+        """Return True if at least one of the entity's tickers has real price data."""
+        all_tickers = (
+            ([e["ticker"]] if e.get("ticker") else []) +
+            e.get("affected_tickers", []) +
+            e.get("investor_tickers", [])
+        )
+        return any(t in price_data for t in all_tickers)
+
     def filter_entities(raw):
         es = sorted(raw, key=lambda e: (tier_priority(e), -e.get("mention_count", 0)))
         es = [e for e in es if e.get("name", "").lower().strip() not in CHANNEL_HOSTS]
-        es = [e for e in es if e.get("ticker") or e.get("affected_tickers") or e.get("investor_tickers")]
+        es = [e for e in es if has_price(e)]
         return es
 
     # Build per-report entity lists
@@ -532,7 +543,6 @@ def generate_html(reports):
 
     # Fetch images for all unique entities across all dates
     all_entities = {e["name"]: e for _, es in report_sections for e in es}
-    price_data = load_price_data()
     image_map = fetch_all_images(list(all_entities.values()))
 
     # Use the newest date for the page title/header
