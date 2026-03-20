@@ -553,10 +553,10 @@ def generate_html(reports):
     market_indices = load_market_indices()
 
     SENTIMENT_META = {
-        "bullish":  ("#0D2818", "Bullish",  "#4ade80"),
-        "bearish":  ("#2A0E10", "Bearish",  "#f87171"),
-        "mixed":    ("#2A1F08", "Mixed",    "#fbbf24"),
-        "neutral":  ("#1A1A26", "Neutral",  "#A8A7B2"),
+        "bullish":  ("rgba(16,185,129,0.12)",  "Bullish",  "#10B981"),
+        "bearish":  ("rgba(230,57,70,0.12)",   "Bearish",  "#E63946"),
+        "mixed":    ("rgba(245,158,11,0.12)",  "Mixed",    "#F59E0B"),
+        "neutral":  ("rgba(100,116,139,0.12)", "Neutral",  "#64748B"),
     }
 
     def render_card(entity):
@@ -733,25 +733,40 @@ def generate_html(reports):
   <title>Market Pulse — Companies & Tech — {today_str}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
 
     :root {{
-      --bg:      #0E0E16;
-      --white:   #191923;
-      --border:  #2A2A38;
-      --ink:     #EEEDF2;
-      --ink2:    #A8A7B2;
-      --muted:   #5A5966;
-      --red:     #F04545;
+      --bg:        #0B1426;
+      --white:     #111D33;
+      --border:    #1E2D45;
+      --ink:       #F1F5F9;
+      --ink2:      #94A3B8;
+      --muted:     #64748B;
+      --red:       #E63946;
+      --teal:      #10B981;
+      --amber:     #F59E0B;
       --card-radius: 14px;
+    }}
+
+    /* ── ANIMATIONS ── */
+    @keyframes cardIn {{
+      from {{ opacity: 0; transform: translateY(18px); }}
+      to   {{ opacity: 1; transform: translateY(0); }}
+    }}
+    .card {{
+      animation: cardIn 0.45s ease both;
+      animation-play-state: paused;
+    }}
+    .card.visible {{
+      animation-play-state: running;
     }}
 
     body {{
       background: var(--bg);
       color: var(--ink);
-      font-family: 'Inter', -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       font-size: 14px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -759,13 +774,16 @@ def generate_html(reports):
 
     /* ── MARKET SUMMARY BAR ── */
     .market-bar {{
-      background: #07070D;
-      border-bottom: 1px solid #1C1C28;
+      background: #070E1A;
+      border-bottom: 1px solid #1E3A5F;
       padding: 0 1rem;
       height: 34px;
       display: flex;
       align-items: center;
       overflow: hidden;
+      position: sticky;
+      top: 0;
+      z-index: 300;
     }}
     .market-bar-inner {{
       display: flex;
@@ -781,21 +799,21 @@ def generate_html(reports):
       padding: 0 1.1rem;
     }}
     .mkt-sep {{
-      color: #252535;
+      color: #1E3A5F;
       font-size: 0.7rem;
       user-select: none;
     }}
     .mkt-label {{
       font-size: 0.65rem;
       font-weight: 700;
-      color: #5A5970;
+      color: #3D5A80;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }}
     .mkt-close {{
       font-size: 0.72rem;
       font-weight: 600;
-      color: #C8C7D0;
+      color: #94A3B8;
       font-variant-numeric: tabular-nums;
     }}
     .mkt-pct {{
@@ -803,8 +821,8 @@ def generate_html(reports):
       font-weight: 600;
       font-variant-numeric: tabular-nums;
     }}
-    .mkt-pct.up {{ color: #4ade80; }}
-    .mkt-pct.dn {{ color: #f87171; }}
+    .mkt-pct.up {{ color: var(--teal); }}
+    .mkt-pct.dn {{ color: var(--red); }}
 
     /* ── TOPBAR ── */
     .topbar {{
@@ -816,8 +834,8 @@ def generate_html(reports):
       align-items: center;
       justify-content: space-between;
       position: sticky;
-      top: 0;
-      z-index: 200;
+      top: 34px;
+      z-index: 250;
     }}
 
     .brand {{
@@ -895,7 +913,7 @@ def generate_html(reports):
       gap: 0.5rem;
       flex-wrap: wrap;
       position: sticky;
-      top: 52px;
+      top: 86px;
       z-index: 100;
     }}
 
@@ -926,19 +944,20 @@ def generate_html(reports):
 
     .pill {{
       padding: 0.3rem 0.9rem;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.72rem;
       font-weight: 500;
-      border: 1px solid var(--border);
+      border: 1px solid #1E3A5F;
       border-radius: 2rem;
       background: transparent;
       color: var(--ink2);
       cursor: pointer;
-      transition: all 0.15s;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
       display: flex;
       align-items: center;
       gap: 0.35rem;
     }}
+    .pill:hover:not(.active) {{ background: rgba(30,58,95,0.4); transform: translateY(-1px); }}
 
     .pill .dot {{
       width: 6px;
@@ -969,19 +988,24 @@ def generate_html(reports):
     }}
 
     .search-wrap input {{
-      padding: 0.32rem 0.9rem 0.32rem 2rem;
+      padding: 0.35rem 1rem 0.35rem 2.1rem;
       border: 1px solid var(--border);
-      border-radius: 2rem;
+      border-radius: 999px;
       background: var(--bg);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
       color: var(--ink);
       width: 220px;
       outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
     }}
 
     .search-wrap input::placeholder {{ color: var(--muted); }}
-    .search-wrap input:focus {{ border-color: var(--red); background: var(--white); }}
+    .search-wrap input:focus {{
+      border-color: var(--red);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(240,69,69,0.15);
+    }}
 
     .search-icon {{
       position: absolute;
@@ -1002,73 +1026,64 @@ def generate_html(reports):
     /* ── GRID ── */
     .grid-wrap {{
       max-width: 1400px;
-      margin: 2rem auto;
-      padding: 0 1rem 6rem;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 6rem;
     }}
 
     .card-grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 3rem 2.5rem;
       align-items: start;
     }}
 
-    /* ── CARD ── */
+    /* ── CARD — editorial, no box ── */
     .card {{
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--card-radius);
+      background: transparent;
+      border: none;
+      border-radius: 0;
       overflow: visible;
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      transition: opacity 0.2s;
       cursor: default;
       position: relative;
       z-index: 1;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }}
 
-    .card:hover {{
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px var(--red);
-      transform: translateY(-4px);
-      z-index: 100;
-    }}
+    .card:hover {{ opacity: 0.95; z-index: 100; }}
 
     .card.hidden {{ display: none; }}
 
     /* Color art block */
     .card-art {{
-      height: 200px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      border-radius: var(--card-radius) var(--card-radius) 0 0;
+      border-radius: 16px;
     }}
 
-    /* Gradient overlay so tags are readable over any image */
-    .card-art::after {{
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 45%, transparent 70%);
-      pointer-events: none;
-    }}
+    /* No gradient overlay — clean standalone image */
+    .card-art::after {{ display: none; }}
 
     .wiki-img {{
       position: absolute;
       inset: 0;
       background-size: cover;
       background-position: center top;
+      transition: transform 0.4s ease;
     }}
+    .card:hover .wiki-img {{ transform: scale(1.04); }}
 
     .logo-img {{
-      width: 90px;
-      height: 90px;
+      width: 100px;
+      height: 100px;
       object-fit: contain;
-      border-radius: 16px;
-      background: #F0EFF4;
-      padding: 10px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+      border-radius: 20px;
+      background: #EEF2FF;
+      padding: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }}
 
     .logo-fallback {{
@@ -1119,13 +1134,13 @@ def generate_html(reports):
 
     /* Card body */
     .card-body {{
-      padding: 1.1rem 1.2rem 1rem;
+      padding: 1rem 0 0;
     }}
 
     /* ── MARKET CHATTER DROPDOWN ── */
     .dropdown-wrap {{
       position: relative;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }}
 
     .dropdown-btn {{
@@ -1138,7 +1153,7 @@ def generate_html(reports):
       border: 1px solid var(--border);
       border-radius: 999px;
       cursor: pointer;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.64rem;
       font-weight: 600;
       color: var(--muted);
@@ -1181,20 +1196,27 @@ def generate_html(reports):
     .dropdown-wrap.open .chevron {{ transform: rotate(180deg); }}
 
     .dropdown-body {{
-      display: none;
       position: absolute;
       left: 0;
       right: 0;
       top: 100%;
       z-index: 400;
-      background: #13131C;
+      background: #0D1829;
       border: 1px solid var(--red);
       border-top: none;
       border-radius: 0 0 14px 14px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(230,57,70,0.1);
+      padding: 0 0.85rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.32s ease, opacity 0.22s ease, padding 0.22s ease;
+    }}
+    .dropdown-wrap.open .dropdown-body {{
+      max-height: 600px;
+      opacity: 1;
       padding: 0.75rem 0.85rem 0.65rem;
     }}
-    .dropdown-wrap.open .dropdown-body {{ display: block; }}
     .card:has(.dropdown-wrap.open) {{ z-index: 300; }}
 
     /* Bullet summary items — red left accent */
@@ -1257,73 +1279,77 @@ def generate_html(reports):
 
     .card-art-meta {{
       position: absolute;
-      bottom: 0.75rem;
-      left: 0.85rem;
+      top: 0.65rem;
+      left: 0.7rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       z-index: 1;
     }}
 
     .type-tag {{
-      font-size: 0.58rem;
+      font-size: 0.52rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #fff;
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.85);
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 999px;
-      padding: 0.18rem 0.55rem;
+      padding: 0.14rem 0.45rem;
     }}
 
     .tier {{
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       font-weight: 700;
       letter-spacing: 0.08em;
-      padding: 0.18rem 0.5rem;
+      padding: 0.14rem 0.4rem;
       border-radius: 999px;
     }}
 
-    .tier.t1   {{ background: rgba(21,128,61,0.75);  color: #fff; }}
-    .tier.t2   {{ background: rgba(180,83,9,0.75);   color: #fff; }}
-    .tier.both {{ background: rgba(109,40,217,0.75); color: #fff; }}
+    .tier.t1   {{ background: rgba(21,128,61,0.7);  color: #fff; }}
+    .tier.t2   {{ background: rgba(180,83,9,0.7);   color: #fff; }}
+    .tier.both {{ background: rgba(109,40,217,0.7); color: #fff; }}
 
 
     .card-title-row {{
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
+      gap: 0.6rem;
+      margin-bottom: 0.55rem;
     }}
 
     .card-title {{
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.15rem;
+      font-size: 1.28rem;
       font-weight: 700;
       color: var(--ink);
-      line-height: 1.25;
-      letter-spacing: -0.01em;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
       flex: 1;
     }}
 
     .sent-badge {{
       flex-shrink: 0;
-      font-size: 0.58rem;
+      font-size: 0.52rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.2rem 0.55rem;
+      padding: 0.18rem 0.55rem;
       border-radius: 999px;
-      margin-top: 0.18rem;
+      margin-top: 0.25rem;
       white-space: nowrap;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid currentColor;
+      opacity: 0.9;
     }}
 
     .ticker {{
-      font-family: 'Inter', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.6rem;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -1333,10 +1359,11 @@ def generate_html(reports):
     }}
 
     .card-why {{
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--ink2);
+      line-height: 1.75;
+      margin-bottom: 1rem;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
@@ -1377,24 +1404,26 @@ def generate_html(reports):
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid var(--border);
-      padding-top: 0.65rem;
-      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      margin-top: 0.25rem;
     }}
 
     .mentions {{
-      font-size: 0.7rem;
+      font-size: 0.6rem;
+      font-weight: 300;
       color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }}
 
-    .mentions strong {{ color: var(--ink); font-weight: 600; }}
+    .mentions strong {{ color: var(--muted); font-weight: 300; }}
 
     /* ── PRICE ROW ── */
     .price-row {{
       display: flex;
       align-items: baseline;
       gap: 0.4rem;
-      margin: 0.3rem 0 0.2rem;
+      margin: 0.5rem 0 0.4rem;
       flex-wrap: wrap;
     }}
     .price-ticker {{
@@ -1427,7 +1456,7 @@ def generate_html(reports):
       flex-wrap: wrap;
       align-items: center;
       gap: 0.3rem;
-      margin: 0.35rem 0 0.4rem;
+      margin: 0.6rem 0 0.6rem;
     }}
     .affected-label {{
       font-size: 0.6rem;
@@ -1440,28 +1469,30 @@ def generate_html(reports):
     .affect-chip {{
       display: inline-flex;
       align-items: center;
-      gap: 0.22rem;
-      padding: 0.15rem 0.45rem;
+      gap: 0.2rem;
+      padding: 0.12rem 0.4rem;
       border-radius: 999px;
       border: 1px solid transparent;
       white-space: nowrap;
+      transition: filter 0.15s, transform 0.15s;
     }}
-    .affect-chip.up   {{ background: #0D2818; border-color: #1A4A2A; }}
-    .affect-chip.dn   {{ background: #2A0E10; border-color: #4A1A1C; }}
-    .affect-chip.flat {{ background: rgba(255,255,255,0.04); border-color: var(--border); }}
+    .affect-chip:hover {{ filter: brightness(1.2); transform: translateY(-1px); }}
+    .affect-chip.up   {{ background: #0D2E26; border-color: #134D3E; }}
+    .affect-chip.dn   {{ background: #2E0D15; border-color: #4D1322; }}
+    .affect-chip.flat {{ background: #1E293B; border-color: #334155; }}
     .affect-chip-ticker {{
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       font-weight: 800;
       color: var(--ink);
       letter-spacing: 0.04em;
     }}
     .affect-chip-pct {{
-      font-size: 0.6rem;
+      font-size: 0.56rem;
       font-weight: 600;
       font-variant-numeric: tabular-nums;
     }}
-    .affect-chip.up   .affect-chip-pct {{ color: #4ade80; }}
-    .affect-chip.dn   .affect-chip-pct {{ color: #f87171; }}
+    .affect-chip.up   .affect-chip-pct {{ color: var(--teal); }}
+    .affect-chip.dn   .affect-chip-pct {{ color: var(--red); }}
     .affect-chip.flat .affect-chip-pct {{ color: var(--muted); }}
 
     /* ── TRENDING TICKERS ── */
@@ -1471,11 +1502,11 @@ def generate_html(reports):
       border-bottom: 1px solid var(--border);
     }}
     .tt-card {{
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #111D33 0%, #162440 100%);
+      border: 1px solid #1E3A5F;
       border-left: 3px solid var(--red);
       border-radius: 10px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 20px rgba(0,100,255,0.05), 0 1px 3px rgba(0,0,0,0.3);
       overflow: hidden;
     }}
     .tt-card-header {{
@@ -1514,6 +1545,7 @@ def generate_html(reports):
     .tt-tab.active {{
       background: var(--red);
       color: #fff;
+      box-shadow: 0 0 10px rgba(230,57,70,0.35);
     }}
     .tt-tab:not(.active):hover {{
       background: rgba(255,255,255,0.05);
@@ -1523,12 +1555,22 @@ def generate_html(reports):
       padding: 0.6rem 1rem;
     }}
     .tt-panel {{
-      display: none;
+      display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
       align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.25s ease;
     }}
-    .tt-panel.active {{ display: flex; }}
+    .tt-panel.active {{
+      opacity: 1;
+      pointer-events: auto;
+      max-height: none;
+      overflow: visible;
+    }}
     .tt-empty {{
       font-size: 0.7rem;
       color: var(--muted);
@@ -1541,10 +1583,12 @@ def generate_html(reports):
       border: 1px solid transparent;
       border-radius: 999px;
       cursor: default;
+      transition: filter 0.15s, transform 0.15s;
     }}
-    .mpill.up   {{ background: #0D2818; border-color: #1A4A2A; }}
-    .mpill.down {{ background: #2A0E10; border-color: #4A1A1C; }}
-    .mpill.flat {{ background: rgba(255,255,255,0.04); border-color: var(--border); }}
+    .mpill:hover {{ filter: brightness(1.25); transform: translateY(-1px); }}
+    .mpill.up   {{ background: #0D2E26; border-color: #134D3E; }}
+    .mpill.down {{ background: #2E0D15; border-color: #4D1322; }}
+    .mpill.flat {{ background: #1E293B; border-color: #334155; }}
     .mpill-ticker {{
       font-size: 0.7rem;
       font-weight: 800;
@@ -1556,8 +1600,8 @@ def generate_html(reports):
       font-weight: 600;
       font-variant-numeric: tabular-nums;
     }}
-    .mpill.up   .mpill-pct {{ color: #4ade80; }}
-    .mpill.down .mpill-pct {{ color: #f87171; }}
+    .mpill.up   .mpill-pct {{ color: var(--teal); }}
+    .mpill.down .mpill-pct {{ color: var(--red); }}
     .mpill-count {{
       font-size: 0.62rem;
       color: var(--muted);
@@ -1569,15 +1613,22 @@ def generate_html(reports):
       display: flex;
       align-items: center;
       gap: 1rem;
-      padding: 1.5rem 0 0.75rem;
-      border-top: 1px solid var(--border);
-      margin-top: 1rem;
+      padding: 2rem 0 1rem;
+      margin-top: 0.5rem;
+      position: relative;
+    }}
+    .date-section-header::before {{
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border) 20%, var(--border) 80%, transparent);
     }}
     .date-section-header:first-child {{
-      border-top: none;
-      margin-top: 0;
       padding-top: 0;
+      margin-top: 0;
     }}
+    .date-section-header:first-child::before {{ display: none; }}
     .date-section-label {{
       font-family: 'Playfair Display', serif;
       font-size: 1.25rem;
@@ -1604,14 +1655,42 @@ def generate_html(reports):
     /* ── FOOTER ── */
     footer {{
       text-align: center;
-      padding: 2rem;
+      padding: 3rem 2rem;
       border-top: 1px solid var(--border);
-      font-size: 0.68rem;
+      font-size: 0.65rem;
+      font-weight: 300;
       color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
     }}
-
-    footer strong {{ color: var(--ink2); }}
+    .footer-brand {{
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink2);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }}
+    .footer-brand em {{ color: var(--red); font-style: normal; }}
+    .footer-tagline {{
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }}
+    .footer-links {{
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }}
+    .footer-links a {{
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      transition: color 0.15s;
+    }}
+    .footer-links a:hover {{ color: var(--red); }}
 
     /* ── BACK TOP ── */
     .back-top {{
@@ -1690,7 +1769,13 @@ def generate_html(reports):
   </div>
 
   <footer>
-    <strong>MarketPulse</strong> &nbsp;·&nbsp; Built by Krishna &nbsp;·&nbsp; {today_str}
+    <div class="footer-brand">Market<em>Pulse</em></div>
+    <div class="footer-tagline">Powered by YouTube Comment Intelligence &nbsp;·&nbsp; {today_str}</div>
+    <nav class="footer-links">
+      <a href="index.html">Intelligence Report</a>
+      <a href="comments.html">All Comments</a>
+      <a href="companies.html">Companies &amp; Tech</a>
+    </nav>
   </footer>
 
   <button class="back-top" id="backTop" onclick="window.scrollTo({{top:0,behavior:'smooth'}})">↑</button>
@@ -1758,6 +1843,25 @@ def generate_html(reports):
     window.addEventListener('scroll', () => {{
       backBtn.classList.toggle('visible', window.scrollY > 400);
     }});
+
+    // Staggered card fade-in
+    (function() {{
+      const allCards = document.querySelectorAll('.card');
+      const observer = new IntersectionObserver((entries) => {{
+        entries.forEach(entry => {{
+          if (entry.isIntersecting) {{
+            const card = entry.target;
+            const idx = parseInt(card.dataset.animIdx || 0);
+            setTimeout(() => card.classList.add('visible'), idx * 60);
+            observer.unobserve(card);
+          }}
+        }});
+      }}, {{ threshold: 0.05 }});
+      allCards.forEach((card, i) => {{
+        card.dataset.animIdx = i;
+        observer.observe(card);
+      }});
+    }})();
 
     // Market Chatter toggle — accordion: only one open at a time
     function toggleChatter(btn) {{
