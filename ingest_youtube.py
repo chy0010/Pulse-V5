@@ -28,6 +28,10 @@ TIER1_HANDLES = [
     "@claude", "@ConfluentDeveloper", "@TechAltar", "@CNET",
     "@SAMTIME", "@JiangKnowledgeCapsule", "@SimonClark", "@peterdiamandis",
     "@OutofSpecReviews", "@RealEngineering", "@ThinkSchool",
+    # Added batch 2
+    "@RachelHow", "@WarnerBros", "@KinoCheck.com", "@marvel", "@60minutes",
+    "@NikhilKamathClips", "@veritasium", "@RottenTomatoesTRAILERS",
+    "@PhilippLackner", "@LexClips",
 ]
 
 TIER2_HANDLES = [
