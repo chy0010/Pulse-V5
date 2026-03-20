@@ -1034,7 +1034,7 @@ def generate_html(reports):
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem 1.75rem;
-      align-items: stretch;
+      align-items: start;
     }}
 
     /* ── CARD — editorial, no box ── */
