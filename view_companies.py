@@ -874,7 +874,7 @@ def generate_html(reports):
     }}
 
     .page-header-inner {{
-      max-width: 1200px;
+      max-width: 1680px;
       margin: 0 auto;
     }}
 
@@ -918,7 +918,7 @@ def generate_html(reports):
     }}
 
     .controls-inner {{
-      max-width: 1400px;
+      max-width: 1680px;
       margin: 0 auto;
       width: 100%;
       display: flex;
@@ -1025,16 +1025,16 @@ def generate_html(reports):
 
     /* ── GRID ── */
     .grid-wrap {{
-      max-width: 1400px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem 6rem;
+      max-width: 1680px;
+      margin: 2rem auto;
+      padding: 0 2rem 6rem;
     }}
 
     .card-grid {{
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem 2.5rem;
-      align-items: start;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem 1.75rem;
+      align-items: stretch;
     }}
 
     /* ── CARD — editorial, no box ── */
@@ -1047,21 +1047,25 @@ def generate_html(reports):
       cursor: default;
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
     }}
 
     .card:hover {{ opacity: 0.95; z-index: 100; }}
 
     .card.hidden {{ display: none; }}
 
-    /* Color art block */
+    /* Color art block — 3:2 aspect ratio keeps all images same height */
     .card-art {{
-      height: 220px;
+      aspect-ratio: 3 / 2;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
       border-radius: 16px;
+      flex-shrink: 0;
     }}
 
     /* No gradient overlay — clean standalone image */
@@ -1132,15 +1136,18 @@ def generate_html(reports):
       opacity: 0.5;
     }}
 
-    /* Card body */
+    /* Card body — flex column so foot always sits at bottom */
     .card-body {{
-      padding: 1rem 0 0;
+      padding: 0.85rem 0 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }}
 
-    /* ── MARKET CHATTER DROPDOWN ── */
+    /* ── MARKET CHATTER DROPDOWN — in-flow, scrollable ── */
     .dropdown-wrap {{
       position: relative;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }}
 
     .dropdown-btn {{
@@ -1196,16 +1203,11 @@ def generate_html(reports):
     .dropdown-wrap.open .chevron {{ transform: rotate(180deg); }}
 
     .dropdown-body {{
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 100%;
-      z-index: 400;
+      position: static;
       background: #0D1829;
       border: 1px solid var(--red);
       border-top: none;
       border-radius: 0 0 14px 14px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(230,57,70,0.1);
       padding: 0 0.85rem;
       max-height: 0;
       overflow: hidden;
@@ -1213,11 +1215,29 @@ def generate_html(reports):
       transition: max-height 0.32s ease, opacity 0.22s ease, padding 0.22s ease;
     }}
     .dropdown-wrap.open .dropdown-body {{
-      max-height: 600px;
+      max-height: 230px;
+      overflow-y: auto;
       opacity: 1;
       padding: 0.75rem 0.85rem 0.65rem;
     }}
-    .card:has(.dropdown-wrap.open) {{ z-index: 300; }}
+    /* Scrollbar styling */
+    .dropdown-body::-webkit-scrollbar {{ width: 4px; }}
+    .dropdown-body::-webkit-scrollbar-track {{ background: transparent; }}
+    .dropdown-body::-webkit-scrollbar-thumb {{ background: var(--border); border-radius: 2px; }}
+    .dropdown-body::-webkit-scrollbar-thumb:hover {{ background: var(--muted); }}
+    /* Fade gradient at bottom to hint more content */
+    .dropdown-wrap.open::after {{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 28px;
+      background: linear-gradient(to bottom, transparent, #0D1829);
+      border-radius: 0 0 14px 14px;
+      pointer-events: none;
+      z-index: 2;
+    }}
 
     /* Bullet summary items — red left accent */
     .chatter-bullets {{
@@ -1324,7 +1344,7 @@ def generate_html(reports):
 
     .card-title {{
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.28rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--ink);
       line-height: 1.2;
@@ -1359,13 +1379,13 @@ def generate_html(reports):
     }}
 
     .card-why {{
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 400;
       color: var(--ink2);
-      line-height: 1.75;
-      margin-bottom: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }}
@@ -1405,7 +1425,7 @@ def generate_html(reports):
       align-items: center;
       justify-content: space-between;
       padding-top: 0.5rem;
-      margin-top: 0.25rem;
+      margin-top: auto;
     }}
 
     .mentions {{
@@ -1578,8 +1598,8 @@ def generate_html(reports):
     .mpill {{
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      padding: 0.2rem 0.55rem;
+      gap: 0.2rem;
+      padding: 0.15rem 0.4rem;
       border: 1px solid transparent;
       border-radius: 999px;
       cursor: default;
@@ -1590,20 +1610,20 @@ def generate_html(reports):
     .mpill.down {{ background: #2E0D15; border-color: #4D1322; }}
     .mpill.flat {{ background: #1E293B; border-color: #334155; }}
     .mpill-ticker {{
-      font-size: 0.7rem;
+      font-size: 0.62rem;
       font-weight: 800;
       color: var(--ink);
       letter-spacing: 0.04em;
     }}
     .mpill-pct {{
-      font-size: 0.68rem;
+      font-size: 0.6rem;
       font-weight: 600;
       font-variant-numeric: tabular-nums;
     }}
     .mpill.up   .mpill-pct {{ color: var(--teal); }}
     .mpill.down .mpill-pct {{ color: var(--red); }}
     .mpill-count {{
-      font-size: 0.62rem;
+      font-size: 0.57rem;
       color: var(--muted);
     }}
 
