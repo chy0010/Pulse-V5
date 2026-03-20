@@ -476,11 +476,16 @@
     .dropdown-wrap.open .chevron { transform: rotate(180deg); }
 
     .dropdown-body {
-      position: static;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      z-index: 400;
       background: #0D1829;
       border: 1px solid var(--red);
       border-top: none;
       border-radius: 0 0 14px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
       padding: 0 0.85rem;
       max-height: 0;
       overflow: hidden;
@@ -509,8 +514,10 @@
       background: linear-gradient(to bottom, transparent, #0D1829);
       border-radius: 0 0 14px 14px;
       pointer-events: none;
-      z-index: 2;
+      z-index: 401;
     }
+    /* Elevate card so its absolute dropdown renders above sibling cards */
+    .card:has(.dropdown-wrap.open) { z-index: 300; }
 
     /* Bullet summary items — red left accent */
     .chatter-bullets {
@@ -1011,7 +1018,7 @@
 </head>
 <body>
 
-<div class="market-bar"><div class="market-bar-inner"><span class="mkt-item"><span class="mkt-label">S&P 500</span><span class="mkt-close">6,551.19</span><span class="mkt-pct dn">-0.83%</span></span><span class="mkt-sep">|</span><span class="mkt-item"><span class="mkt-label">DJIA</span><span class="mkt-close">45,763.79</span><span class="mkt-pct dn">-0.56%</span></span><span class="mkt-sep">|</span><span class="mkt-item"><span class="mkt-label">NASDAQ</span><span class="mkt-close">21,819.38</span><span class="mkt-pct dn">-1.23%</span></span><span class="mkt-sep">|</span><span class="mkt-item"><span class="mkt-label">RUT 2000</span><span class="mkt-close">2,470.60</span><span class="mkt-pct dn">-0.98%</span></span><span class="mkt-sep">|</span><span class="mkt-item"><span class="mkt-label">BTC</span><span class="mkt-close">$69,842</span><span class="mkt-pct dn">-0.14%</span></span></div></div>
+<div class="market-bar"><div class="market-bar-inner"><span class="mkt-item"><span class="mkt-label">S&P 500</span><span class="mkt-close">6,548.25</span><span class="mkt-pct dn">-0.88%</span></span><span class="mkt-sep">|</span><span class="mkt-item"><span class="mkt-label">DJIA</span><span class="mkt-close">45,735.63</span><span class="mkt-pct dn">-0.62%</span></span><span class="mkt-sep">|</span><span class="mkt-item"><span class="mkt-label">NASDAQ</span><span class="mkt-close">21,806.99</span><span class="mkt-pct dn">-1.28%</span></span><span class="mkt-sep">|</span><span class="mkt-item"><span class="mkt-label">RUT 2000</span><span class="mkt-close">2,463.69</span><span class="mkt-pct dn">-1.25%</span></span><span class="mkt-sep">|</span><span class="mkt-item"><span class="mkt-label">BTC</span><span class="mkt-close">$69,892</span><span class="mkt-pct dn">-0.07%</span></span></div></div>
   <!-- TOPBAR -->
   <div class="topbar">
     <span class="brand">Market<em>Pulse</em></span>

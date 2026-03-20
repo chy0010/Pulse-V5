@@ -1203,11 +1203,16 @@ def generate_html(reports):
     .dropdown-wrap.open .chevron {{ transform: rotate(180deg); }}
 
     .dropdown-body {{
-      position: static;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      z-index: 400;
       background: #0D1829;
       border: 1px solid var(--red);
       border-top: none;
       border-radius: 0 0 14px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
       padding: 0 0.85rem;
       max-height: 0;
       overflow: hidden;
@@ -1236,8 +1241,10 @@ def generate_html(reports):
       background: linear-gradient(to bottom, transparent, #0D1829);
       border-radius: 0 0 14px 14px;
       pointer-events: none;
-      z-index: 2;
+      z-index: 401;
     }}
+    /* Elevate card so its absolute dropdown renders above sibling cards */
+    .card:has(.dropdown-wrap.open) {{ z-index: 300; }}
 
     /* Bullet summary items — red left accent */
     .chatter-bullets {{
