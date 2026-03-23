@@ -117,8 +117,15 @@ python detect_divergences.py
 
 **View the dashboard:**
 ```bash
-python view_web.py        # intelligence report
-python view_companies.py  # entities & companies
+python view_web.py        # generates website/index.html — narrative intelligence report
+python view_companies.py  # generates website/companies.html — entity cards with prices
+python view_comments.py   # generates website/comments.html — raw comment browser
+```
+
+**Ask the analyst agent:**
+```bash
+python agent.py "What drove NVDA sentiment this week?"
+python agent.py  # interactive mode
 ```
 
 ---
