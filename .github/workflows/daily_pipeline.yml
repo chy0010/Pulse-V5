@@ -30,6 +30,11 @@ jobs:
         run: python ingest_youtube.py
         continue-on-error: true  # don't stop if quota exceeded
 
+      - name: Generate daily intelligence report
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python analyze_daily.py
+
       - name: Extract entities & sentiment
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

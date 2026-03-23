@@ -37,6 +37,9 @@ def load_prices(conn, date_str):
     return {r[0]: {"close": r[1], "percent_change": r[2], "volume": r[3]} for r in rows}
 
 
+SENTIMENT_SCORE = {"bullish": 1.0, "mixed": 0.5, "neutral": 0.5, "bearish": 0.0}
+
+
 def build_snapshot_rows(entities, prices, date_str):
     """
     Expand each entity into one row per ticker it is linked to.
@@ -47,49 +50,36 @@ def build_snapshot_rows(entities, prices, date_str):
         name = e.get("name", "")
         etype = e.get("type", "other")
         mentions = e.get("mention_count", 0)
+        sentiment_label = e.get("sentiment", "neutral")
+        sentiment_score = SENTIMENT_SCORE.get(sentiment_label, 0.5)
+
+        base = {
+            "date": date_str,
+            "entity_name": name,
+            "entity_type": etype,
+            "mention_count": mentions,
+            "sentiment_label": sentiment_label,
+            "sentiment_score": sentiment_score,
+        }
 
         # Direct ticker
         if e.get("ticker"):
             t = e["ticker"]
             p = prices.get(t, {})
-            rows.append({
-                "date": date_str,
-                "entity_name": name,
-                "entity_type": etype,
-                "ticker": t,
-                "close_price": p.get("close"),
-                "percent_change": p.get("percent_change"),
-                "mention_count": mentions,
-                "affected_relationship": "direct",
-            })
+            rows.append({**base, "ticker": t, "close_price": p.get("close"),
+                         "percent_change": p.get("percent_change"), "affected_relationship": "direct"})
 
         # Affected tickers (geo/political → market sectors)
         for t in e.get("affected_tickers", []):
             p = prices.get(t, {})
-            rows.append({
-                "date": date_str,
-                "entity_name": name,
-                "entity_type": etype,
-                "ticker": t,
-                "close_price": p.get("close"),
-                "percent_change": p.get("percent_change"),
-                "mention_count": mentions,
-                "affected_relationship": "indirect",
-            })
+            rows.append({**base, "ticker": t, "close_price": p.get("close"),
+                         "percent_change": p.get("percent_change"), "affected_relationship": "indirect"})
 
         # Investor tickers (private company → public backer)
         for t in e.get("investor_tickers", []):
             p = prices.get(t, {})
-            rows.append({
-                "date": date_str,
-                "entity_name": name,
-                "entity_type": etype,
-                "ticker": t,
-                "close_price": p.get("close"),
-                "percent_change": p.get("percent_change"),
-                "mention_count": mentions,
-                "affected_relationship": "investor",
-            })
+            rows.append({**base, "ticker": t, "close_price": p.get("close"),
+                         "percent_change": p.get("percent_change"), "affected_relationship": "investor"})
 
     return rows
 
@@ -105,15 +95,20 @@ def build_ticker_daily_rows(snapshot_rows, prices, date_str):
     for row in snapshot_rows:
         t = row["ticker"]
         m = row["mention_count"] or 0
+        s = row.get("sentiment_score", 0.5)
         buckets[t]["total_mentions"] += m
+        buckets[t]["weighted_sum"] += s * m
 
     result = []
     for ticker, agg in buckets.items():
         p = prices.get(ticker, {})
+        total = agg["total_mentions"]
+        weighted_sentiment = round(agg["weighted_sum"] / total, 4) if total else None
         result.append({
             "date": date_str,
             "ticker": ticker,
-            "total_mentions": agg["total_mentions"],
+            "total_mentions": total,
+            "weighted_sentiment_score": weighted_sentiment,
             "close_price": p.get("close"),
             "percent_change": p.get("percent_change"),
             "volume": p.get("volume"),
@@ -129,11 +124,12 @@ def save_snapshots(conn, rows):
             conn.execute("""
                 INSERT OR REPLACE INTO daily_snapshots
                     (date, entity_name, entity_type, ticker, close_price, percent_change,
-                     mention_count, affected_relationship)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                     sentiment_score, sentiment_label, mention_count, affected_relationship)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 r["date"], r["entity_name"], r["entity_type"], r["ticker"],
                 r["close_price"], r["percent_change"],
+                r.get("sentiment_score"), r.get("sentiment_label"),
                 r["mention_count"], r["affected_relationship"],
             ))
             saved += 1
@@ -149,10 +145,12 @@ def save_ticker_daily(conn, rows):
         try:
             conn.execute("""
                 INSERT OR REPLACE INTO ticker_daily
-                    (date, ticker, total_mentions, close_price, percent_change, volume)
-                VALUES (?, ?, ?, ?, ?, ?)
+                    (date, ticker, total_mentions, weighted_sentiment_score,
+                     close_price, percent_change, volume)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
             """, (
                 r["date"], r["ticker"], r["total_mentions"],
+                r.get("weighted_sentiment_score"),
                 r["close_price"], r["percent_change"], r["volume"],
             ))
             saved += 1

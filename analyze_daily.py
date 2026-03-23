@@ -12,7 +12,8 @@ load_dotenv()
 DB_PATH = "marketpulse_v5.db"
 REPORTS_DIR = "reports"
 MODEL = "claude-sonnet-4-20250514"
-MAX_TOKENS = 4000
+MAX_TOKENS = 16000        # must exceed thinking_budget + output tokens
+THINKING_BUDGET = 10000  # tokens Claude can use to reason before writing
 
 SYSTEM_PROMPT = """You are a consumer intelligence analyst. You are given today's YouTube video titles and their most-engaged comments from two types of channels:
 
@@ -139,16 +140,28 @@ def build_prompt(data):
 
 
 def call_llm(client, prompt, retries=3):
-    """Send prompt to Claude and return the response text. Retries on rate limit."""
+    """Send prompt to Claude with extended thinking + prompt caching. Retries on rate limit."""
     for attempt in range(retries):
         try:
             response = client.messages.create(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
-                system=SYSTEM_PROMPT,
+                thinking={
+                    "type": "enabled",
+                    "budget_tokens": THINKING_BUDGET,  # reasoning space before writing
+                },
+                system=[{
+                    "type": "text",
+                    "text": SYSTEM_PROMPT,
+                    "cache_control": {"type": "ephemeral"},  # cache across chunked calls
+                }],
                 messages=[{"role": "user", "content": prompt}],
             )
-            return response.content[0].text
+            # Response has thinking blocks + text block — return only the text
+            for block in response.content:
+                if block.type == "text":
+                    return block.text
+            return ""
         except anthropic.RateLimitError:
             if attempt < retries - 1:
                 wait = 65 * (attempt + 1)

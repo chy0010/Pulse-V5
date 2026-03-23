@@ -15,6 +15,36 @@ DB_PATH = "marketpulse_v5.db"
 REPORTS_DIR = "reports"
 MODEL = "claude-sonnet-4-20250514"
 
+# Tool schema — forces Claude to return valid structured JSON, no parsing needed
+EXTRACT_TOOL = {
+    "name": "extract_entities",
+    "description": "Extract all named entities discussed in YouTube comments",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "entities": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name":          {"type": "string"},
+                        "type":          {"type": "string", "enum": ["company", "technology", "product", "person", "event", "platform", "gpu", "ai_model", "policy", "other"]},
+                        "ticker":        {"type": ["string", "null"]},
+                        "parent":        {"type": ["string", "null"]},
+                        "mention_count": {"type": "integer"},
+                        "why_talking":   {"type": "string"},
+                        "what_saying":   {"type": "array", "items": {"type": "string"}},
+                        "key_quotes":    {"type": "array", "items": {"type": "string"}},
+                        "sentiment":     {"type": "string", "enum": ["bullish", "bearish", "mixed", "neutral"]},
+                    },
+                    "required": ["name", "type", "mention_count", "why_talking", "what_saying", "key_quotes", "sentiment"],
+                },
+            }
+        },
+        "required": ["entities"],
+    },
+}
+
 # Names of channel hosts / podcasters — exclude from entity output
 CHANNEL_HOSTS = {
     "marques brownlee", "mkbhd",
@@ -136,15 +166,26 @@ def build_prompt(videos, max_comments=40):
 
 
 def call_llm(client, prompt, retries=3):
+    """Call Claude with tool use (guaranteed structured output) + prompt caching."""
     for attempt in range(retries):
         try:
             response = client.messages.create(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
-                system=SYSTEM_PROMPT,
+                system=[{
+                    "type": "text",
+                    "text": SYSTEM_PROMPT,
+                    "cache_control": {"type": "ephemeral"},  # cache system prompt across calls
+                }],
+                tools=[EXTRACT_TOOL],
+                tool_choice={"type": "tool", "name": "extract_entities"},
                 messages=[{"role": "user", "content": prompt}],
             )
-            return response.content[0].text
+            # Tool use response is already a validated dict — no JSON parsing needed
+            for block in response.content:
+                if block.type == "tool_use":
+                    return block.input
+            return {"entities": []}
         except anthropic.RateLimitError:
             if attempt < retries - 1:
                 wait = 65 * (attempt + 1)
@@ -152,25 +193,6 @@ def call_llm(client, prompt, retries=3):
                 time.sleep(wait)
             else:
                 raise
-
-
-def extract_json(raw):
-    raw = raw.strip()
-    # Strip markdown code fences if present
-    if "```" in raw:
-        parts = raw.split("```")
-        for part in parts:
-            if part.startswith("json"):
-                part = part[4:]
-            part = part.strip()
-            if part.startswith("{"):
-                raw = part
-                break
-    start = raw.find("{")
-    end = raw.rfind("}") + 1
-    if start != -1 and end > start:
-        return raw[start:end]
-    return raw
 
 
 def merge_entities(lists):
@@ -254,13 +276,8 @@ def run_extraction_for_tier(client, data, tier_label):
 
     if len(prompt) <= CHAR_LIMIT:
         print(f"  [{tier_label}] Single-pass extraction...")
-        raw = call_llm(client, prompt)
-        try:
-            parsed = json.loads(extract_json(raw))
-            return parsed.get("entities", [])
-        except json.JSONDecodeError as e:
-            print(f"  [{tier_label}] JSON parse error: {e}")
-            return []
+        result = call_llm(client, prompt)
+        return result.get("entities", [])
 
     chunk_size = 30
     chunks = [data[i:i+chunk_size] for i in range(0, len(data), chunk_size)]
@@ -270,12 +287,8 @@ def run_extraction_for_tier(client, data, tier_label):
     for i, chunk in enumerate(chunks):
         print(f"  [{tier_label}] Pass {i+1}/{len(chunks)}...")
         chunk_prompt = build_prompt(chunk)
-        raw = call_llm(client, chunk_prompt)
-        try:
-            parsed = json.loads(extract_json(raw))
-            all_entities.append(parsed.get("entities", []))
-        except json.JSONDecodeError as e:
-            print(f"  [{tier_label}] JSON parse error on pass {i+1}: {e} — skipping chunk")
+        result = call_llm(client, chunk_prompt)
+        all_entities.append(result.get("entities", []))
 
         if i < len(chunks) - 1:
             print(f"  Waiting 65s before next pass...")
