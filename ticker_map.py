@@ -286,3 +286,4 @@ def get_investor_tickers(name: str) -> list[str]:
     """For private AI companies, return public investor/partner tickers."""
     key = name.lower().strip()
     return PRIVATE_PARENTS.get(key, [])
+
